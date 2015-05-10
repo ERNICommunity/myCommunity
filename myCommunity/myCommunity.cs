@@ -9,17 +9,8 @@ namespace myCommunity
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new ContentPage {
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							XAlign = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};
+			var MainNav = new NavigationPage (new EventsListPage ());
+			MainPage = MainNav;
 		}
 
 		protected override void OnStart ()
