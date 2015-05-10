@@ -16,26 +16,29 @@ namespace myCommunity
 			listView = new ListView ();
 
 			// for now, just initialise the list view with an array of hard coded CommunityEvents
-
 			listView.ItemsSource = new CommunityEvent [] {
-				new CommunityEvent {Topic = "Xamarin"},
-				new CommunityEvent {Topic = "Xamarin Hack Session"},
-				new CommunityEvent {Topic = "Xamarin Hackathon"},
+				new CommunityEvent {Topic = "Xamarin", Type = "community@work", Location = "Airgate" },
+				new CommunityEvent {Topic = "Xamarin Hack Session", Type = "Hack Session", Location = "Bern"},
+				new CommunityEvent {Topic = "Xamarin Hackathon", Type = "Tutorial Session", Location = "Manila"},
+				new CommunityEvent {Topic = "Too much Xamarin", Type = "Hack Session", Location = "Bratislava"},
+				new CommunityEvent {Topic = "OMG", Type = "lunch@community", Location = "Baar"}
+			
 			};
+
 			// the list view items will take their layout from a custom ViewCell class
 			listView.ItemTemplate = new DataTemplate (typeof(EventViewCell));
 
 			// handler for list item clicks
 			listView.ItemSelected += (sender, e) => {
-				Debug.WriteLine("clicked item " + e);
-				// TODO
+				
 				// get the CommunityEvent that is selected and assign it to a temp variable
-
+				var communityEvent = (CommunityEvent)e.SelectedItem;
 				// create the DetailsPage
-
+				var detailsPage = new DetailsPage();
 				// bind the CommunityEvent object to the DetailsPage
-
-				// bring up the DetailsPage
+				detailsPage.BindingContext = communityEvent;
+				// bring up the details page
+				Navigation.PushAsync (detailsPage);
 							
 			};
 

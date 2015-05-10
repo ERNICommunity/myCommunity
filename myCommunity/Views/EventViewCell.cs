@@ -12,7 +12,7 @@ namespace myCommunity
 				YAlign = TextAlignment.Center
 			};
 
-			// bind the label to the topic property of the CommunityEvent class
+			// bind the label to the "topic" property of the CommunityEvent class
 			topicLabel.SetBinding (Label.TextProperty, "Topic");
 		
 			// create a stacklayout with one child, which is the topic (for now, at least)
@@ -26,14 +26,6 @@ namespace myCommunity
 			View = layout;
 		}
 
-		protected override void OnBindingContextChanged ()
-		{
-			// Fixme : this is happening because the View.Parent is getting 
-			// set after the Cell gets the binding context set on it. Then it is inheriting
-			// the parents binding context.
-			View.BindingContext = BindingContext;
-			base.OnBindingContextChanged ();
-		}
 	}
 
 
