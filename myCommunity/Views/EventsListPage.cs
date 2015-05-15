@@ -22,7 +22,6 @@ namespace myCommunity
 				new CommunityEvent {Topic = "Xamarin Hackathon", Type = "Tutorial Session", Location = "Manila"},
 				new CommunityEvent {Topic = "Too much Xamarin", Type = "Hack Session", Location = "Bratislava"},
 				new CommunityEvent {Topic = "OMG", Type = "lunch@community", Location = "Baar"}
-			
 			};
 
 			// the list view items will take their layout from a custom ViewCell class

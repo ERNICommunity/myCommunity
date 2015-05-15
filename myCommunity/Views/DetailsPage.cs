@@ -17,27 +17,43 @@ namespace myCommunity
 			// display the detail fields
 			// ... the type
 			var typeLabel = new Label { Text = "Event type:" };
-			var typeContent = new Label ();
-			typeContent.SetBinding (Label.TextProperty, "Type");
+			var eventType = new Label ();
+			eventType.SetBinding (Label.TextProperty, "Type");
 
 //			// ... the location
 			var locationLabel = new Label { Text = "Location:" };
-			var locationContent = new Label ();
-			locationContent.SetBinding (Label.TextProperty, "Location");
+			var eventLocation = new Label ();
+			eventLocation.SetBinding (Label.TextProperty, "Location");
 
-			// ... the date and time TODO
+			// ... the date and time (just showing as a string for now)
+			var dateTimeLabel = new Label { Text = "When:" };
+			var eventDateTime = new Label ();
+			eventDateTime.SetBinding (Label.TextProperty, "EventDateTime".ToString());
 
-			// and so on...
+			// ... the organiser / reponsible person
+			var responsibleLabel = new Label { Text = "Organiser:" };
+			var eventResponsible = new Label ();
+			eventResponsible.SetBinding (Label.TextProperty, "Responsible");
 
+			// ... the organiser / reponsible person
+			var isFoodLabel = new Label { Text = "Food provided:" };
+			var isFoodSwitch = new Switch ();
+			isFoodSwitch.SetBinding (Switch.IsToggledProperty, "IsFood");
 
 			Content = new StackLayout {
 				VerticalOptions = LayoutOptions.StartAndExpand,
 				Padding = new Thickness(20),
 				Children = {
 					typeLabel,
-					typeContent,
+					eventType,
 					locationLabel,
-					locationContent
+					eventLocation,
+					dateTimeLabel,
+					eventDateTime,
+					responsibleLabel,
+					eventResponsible,
+					isFoodLabel,
+					isFoodSwitch
 				}
 			};
 		}
