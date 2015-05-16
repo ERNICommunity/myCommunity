@@ -42,8 +42,8 @@ x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
 		<Label Text="Bookable time: "  TextColor="#BBBBBB" />
 		<Label Text="{Binding BookableTime, StringFormat='{0}'}" FontSize="Large" TextColor="White" BackgroundColor="Gray" />
 
-		<!-- Uses a custom converter to convert the bool to a custom string (defined in IsFoodValueConverter) -->
-		<Label Text="{Binding Path=IsFood, Converter={StaticResource foodConverter}}" />
+		<!-- Uses a custom converter to convert the bool to a pizza (defined in IsFoodValueConverter) -->
+		<Image Source="{Binding Path=IsFood, Converter={StaticResource foodConverter}}" />
 		</StackLayout>
 
 		<!-- Image on top right -->

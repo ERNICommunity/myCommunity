@@ -50,6 +50,12 @@ namespace myCommunity.Droid
 			// aapt resource value: 0x7f020001
 			public const int icon = 2130837505;
 			
+			// aapt resource value: 0x7f020002
+			public const int nopizza = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int pizza = 2130837507;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
