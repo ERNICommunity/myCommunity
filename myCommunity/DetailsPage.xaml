@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="*" />
+
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="200" />
+		</Grid.ColumnDefinitions>
+		<!-- The first two rows span only one column to make space for the image on the right -->
+		<Label Text="Date: " Grid.Row="0" Grid.Column="0" TextColor="#BBBBBB" />
+		<Label Text="{Binding Path=EventDate}" FontSize="Large" Grid.Row="1" Grid.Column="0" TextColor="White" BackgroundColor="Gray" />
+		<Label Text="Time: " Grid.Row="2" Grid.Column="0" TextColor="#BBBBBB" />
+		<Label Text="{Binding Path=EventTime}" FontSize="Large" Grid.Row="3" Grid.Column="0" TextColor="White" BackgroundColor="Gray" />
+		<Label Text="Location: " Grid.Row="4" Grid.Column="0" TextColor="#BBBBBB" />
+		<Label Text="{Binding Path=Location}" FontSize="Large" Grid.Row="5" Grid.Column="0" TextColor="White" BackgroundColor="Gray" />
+
+		<!-- After this we have all the content spanning two columns, so we just put a stacklayout in the grid -->
+		<StackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+		<Label Text="Type: " TextColor="#BBBBBB" />
+		<Label Text="{Binding Path=Type}" FontSize="Large" TextColor="White" BackgroundColor="Gray" />
+		<Label Text="Description: "  TextColor="#BBBBBB" />
+		<Label Text="{Binding Path=Description}" FontSize="Small" TextColor="White" BackgroundColor="Gray" />
+		<Label Text="Bookable time: "  TextColor="#BBBBBB" />
+		<Label Text="{Binding BookableTime, StringFormat='{0}'}" FontSize="Large" TextColor="White" BackgroundColor="Gray" />
+	
+		</StackLayout>
+
+		<!-- Image on top right -->
+		<Image Source="ernicommunity.jpeg" Grid.Row="0" Grid.Column="1" Grid.RowSpan="6" />
+	</Grid>
+</ContentPage>
