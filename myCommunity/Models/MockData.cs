@@ -18,7 +18,7 @@ namespace myCommunity
 				Type = "Hack Session",
 				Location = "Zurich",
 				Responsible = "Stefan Odermatt",
-				IsFood = true,
+				IsFood = false,
 				BookableTime = 0
 			};
 			mockData [1] = new CommunityEvent {

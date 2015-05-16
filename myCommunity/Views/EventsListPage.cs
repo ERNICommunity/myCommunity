@@ -15,7 +15,7 @@ namespace myCommunity
 
 			listView = new ListView ();
 
-			// for now, just initialise the list view with an array of hard coded CommunityEvents
+			// for now, just initialise the list view with an array of hard coded CommunityEvents from the static MockData class
 			listView.ItemsSource = MockData.getMockData();
 
 			// the list view items will take their layout from a custom ViewCell class

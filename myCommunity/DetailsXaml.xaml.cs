@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace myCommunity
 {
@@ -16,7 +17,8 @@ namespace myCommunity
 				NavigationPage.SetHasNavigationBar (this, true);
 
 				InitializeComponent ();
-				
+
+
 		}
 	}
 }

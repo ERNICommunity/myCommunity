@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:local="clr-namespace:myCommunity;assembly=myCommunity"
+x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
+
+<ContentPage.Resources>
+        <ResourceDictionary>
+            <local:IsFoodValueConverter x:Key="foodConverter"></local:IsFoodValueConverter>
+        </ResourceDictionary>
+        </ContentPage.Resources>
+
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="20" />
@@ -31,7 +41,9 @@
 		<Label Text="{Binding Path=Description}" FontSize="Small" TextColor="White" BackgroundColor="Gray" />
 		<Label Text="Bookable time: "  TextColor="#BBBBBB" />
 		<Label Text="{Binding BookableTime, StringFormat='{0}'}" FontSize="Large" TextColor="White" BackgroundColor="Gray" />
-	
+
+		<!-- why don't you work? -->
+		<Label Text="{Binding Path=IsFood, Converter={StaticResource foodConverter}}" />
 		</StackLayout>
 
 		<!-- Image on top right -->
