@@ -17,7 +17,7 @@
 			<RowDefinition Height="20" />
 			<RowDefinition Height="30" />
 			<RowDefinition Height="20" />
-			<RowDefinition Height="60" /> <!-- 10th row -->
+			<RowDefinition Height="*" /> <!-- 10th row: description, so take up all the rest of the space -->
 			<RowDefinition Height="25" />
 			<RowDefinition Height="25" />
 			<RowDefinition Height="50" />
