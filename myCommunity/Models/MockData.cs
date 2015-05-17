@@ -8,7 +8,7 @@ namespace myCommunity
 	public static class MockData
 	{
 
-		static readonly List<CommunityEvent> mockData = new List<CommunityEvent>(); // create an array of mock event data
+		static List<CommunityEvent> mockData = new List<CommunityEvent>(); // create a list of mock event data
 
 		static MockData() {
 			mockData.Add (
@@ -21,7 +21,7 @@ namespace myCommunity
 				Location = "Zurich",
 				Responsible = "Stefan Odermatt",
 				IsFood = false,
-					BookableTime = 0});
+				BookableTime = 0});
 						
 			mockData.Add ( new CommunityEvent {
 				EventDate = "19 May, 2015",
@@ -72,9 +72,7 @@ namespace myCommunity
 			public static List<CommunityEvent> getMockData() {
 			return mockData;
 		}
-
-
-
+			
 	}
 }
 
