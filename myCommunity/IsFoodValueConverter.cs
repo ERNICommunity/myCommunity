@@ -20,7 +20,6 @@ namespace myCommunity
 
 		#endregion
 
-
 	}
 }
 
