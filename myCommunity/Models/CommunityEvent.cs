@@ -19,7 +19,7 @@ namespace myCommunity
 		public string EventTime { get; set; } // TODO make this a proper DateTime... need to then StringFormat in the XAML
 		public bool IsFood { get; set; }
 		public int BookableTime { get; set; }
-
+		public bool Favorite { get; set; }
 
 	}
 }

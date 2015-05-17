@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-xmlns:local="clr-namespace:myCommunity;assembly=myCommunity"
-x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
-
-<ContentPage.Resources>
-        <ResourceDictionary>
-            <local:IsFoodValueConverter x:Key="foodConverter"></local:IsFoodValueConverter>
-        </ResourceDictionary>
-        </ContentPage.Resources>
-
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:myCommunity;assembly=myCommunity" x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:IsFoodValueConverter x:Key="foodConverter">
+			</local:IsFoodValueConverter>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="20" />
-			<RowDefinition Height="35" />
+			<RowDefinition Height="30" />
 			<RowDefinition Height="20" />
-			<RowDefinition Height="35" />
+			<RowDefinition Height="30" />
 			<RowDefinition Height="20" />
-			<RowDefinition Height="35" />
-			<RowDefinition Height="*" />
-
+			<RowDefinition Height="30" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="60" /> <!-- 10th row -->
+			<RowDefinition Height="25" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="50" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*" />
@@ -32,20 +33,19 @@ x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
 		<Label Text="{Binding Path=EventTime}" FontSize="Large" Grid.Row="3" Grid.Column="0" TextColor="White" BackgroundColor="Gray" />
 		<Label Text="Location: " Grid.Row="4" Grid.Column="0" TextColor="#BBBBBB" />
 		<Label Text="{Binding Path=Location}" FontSize="Large" Grid.Row="5" Grid.Column="0" TextColor="White" BackgroundColor="Gray" />
+		<Label Text="Type: " TextColor="#BBBBBB" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" />
+		<Label Text="{Binding Path=Type}" FontSize="Large" TextColor="White" BackgroundColor="Gray" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" />
+		<Label Text="Description: " TextColor="#BBBBBB" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" />
+		<Label Text="{Binding Path=Description}" FontSize="Small" TextColor="White" BackgroundColor="Gray" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" />
+		<Label Text="Bookable time: " TextColor="#BBBBBB" Grid.Row="10" Grid.Column="0" />
+		<Label Text="{Binding BookableTime, StringFormat='{0}'}" FontSize="Large" TextColor="White" BackgroundColor="Gray" Grid.Row="10" Grid.Column="1" />
 
-		<!-- After this we have all the content spanning two columns, so we just put a stacklayout in the grid -->
-		<StackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
-		<Label Text="Type: " TextColor="#BBBBBB" />
-		<Label Text="{Binding Path=Type}" FontSize="Large" TextColor="White" BackgroundColor="Gray" />
-		<Label Text="Description: "  TextColor="#BBBBBB" />
-		<Label Text="{Binding Path=Description}" FontSize="Small" TextColor="White" BackgroundColor="Gray" />
-		<Label Text="Bookable time: "  TextColor="#BBBBBB" />
-		<Label Text="{Binding BookableTime, StringFormat='{0}'}" FontSize="Large" TextColor="White" BackgroundColor="Gray" />
+		<Label Text="Add to favorites: " Grid.Row="11" Grid.Column="0" />
+		<Switch IsToggled="{Binding Path=Favorite}" HorizontalOptions="StartAndExpand" Grid.Row="11" Grid.Column="1" />
 
-		<!-- Uses a custom converter to convert the bool to a pizza (defined in IsFoodValueConverter) -->
-		<Image Source="{Binding Path=IsFood, Converter={StaticResource foodConverter}}" />
-		</StackLayout>
-
+				<!-- Uses a custom converter to convert the bool to a pizza (defined in IsFoodValueConverter) -->
+		<Label Text="Food provided: " Grid.Row="12" Grid.Column="0" />
+		<Image Source="{Binding Path=IsFood, Converter={StaticResource foodConverter}}" Grid.Row="12" Grid.Column="1" />
 		<!-- Image on top right -->
 		<Image Source="ernicommunity.jpeg" Grid.Row="0" Grid.Column="1" Grid.RowSpan="6" />
 	</Grid>
