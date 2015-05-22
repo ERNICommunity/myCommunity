@@ -13,8 +13,8 @@ This is the current state of the app.
 
 We got Wilbert to help us with some design. We're aiming for a look like this...
 
-![new1](https://raw.githubusercontent.com/ERNICommunity/myCommunity/master/Screenshots/newdesign1.png)
-![new2](https://raw.githubusercontent.com/ERNICommunity/myCommunity/master/Screenshots/newdesign2.png)
+![new1](https://raw.githubusercontent.com/ERNICommunity/myCommunity/master/Screenshots/newdesign1a.png)
+![new2](https://raw.githubusercontent.com/ERNICommunity/myCommunity/master/Screenshots/newdesign2a.png)
 
 
 
