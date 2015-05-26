@@ -15,13 +15,30 @@ namespace myCommunity
 
 			listView = new ListView ();
 			var b = new Button { Text = "Refresh" };
+			var spinner = new ActivityIndicator
+			{
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				Color = Color.Black,
+				IsVisible = false 
+			};
 
 			// for now, make the fetching of the list a manual thing by clicking on this button
 			b.Clicked += async (sender, e) => {
 
 				// grab the list as an array of CommunityEvents from the webservice
 				var webservice = new RestClient ();
+
+				// start a activity indicator
+				spinner.IsVisible=true;
+				spinner.IsRunning=true;
+
+				// try to fetch from the webservice
 				var communityEventsArray = await webservice.GetEventsAsync ();
+
+				// stop activity indicator
+				spinner.IsVisible=false;
+				spinner.IsRunning=false;
+
 				Debug.WriteLine (communityEventsArray.ToString ());
 				// and assign it to the list source
 				listView.ItemsSource = communityEventsArray;
@@ -52,6 +69,7 @@ namespace myCommunity
 			// set stack layout and add the listview to this
 			var layout = new StackLayout ();
 			layout.Children.Add (b);
+			layout.Children.Add (spinner);
 			layout.Children.Add (listView);
 			layout.VerticalOptions = LayoutOptions.FillAndExpand;
 
@@ -59,29 +77,6 @@ namespace myCommunity
 			Content = layout;
 		}
 
-		// TODO try to put the call to the API in onAppearing and have a spinner show while it is working
-
-//		protected override async void onAppearing()
-//		{
-//			base.OnAppearing();
-//
-//			try
-//			{
-//				var webservice = new RestClient();
-//				// activate/show spinner here
-//				this.listView.ItemsSource = await webservice.GetEventsAsync();
-//				
-//			}
-//			catch (Exception exception)
-//			{
-//				this.DisplayAlert("Error", exception.Message, "OK");
-//			}
-//			finally 
-//			}	
-//			 inactivate the spinner
-//			}
-//			
-//		}
 
 	}
 
