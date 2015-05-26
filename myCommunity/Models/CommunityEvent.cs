@@ -10,30 +10,40 @@ namespace myCommunity
 			
 		}
 
-		[JsonProperty("id")]
+		[JsonProperty ("id")]
 		public string ID { get; set; }
-		[JsonProperty("title")]
+
+		[JsonProperty ("title")]
 		public string Title { get; set; }
-		[JsonProperty("type")]
+
+		[JsonProperty ("type")]
 		public string Type { get; set; }
-		[JsonProperty("location")]
+
+		[JsonProperty ("location")]
 		public string Location { get; set; }
-		[JsonProperty("description")]
+
+		[JsonProperty ("description")]
 		public string Description { get; set; }
-		[JsonProperty("organiser")]
+
+		[JsonProperty ("organiser")]
 		public string Organiser { get; set; }
-		[JsonProperty("eventDate")]
+
+		[JsonProperty ("eventDate")]
 		public string EventDate { get; set; }
-		[JsonProperty("eventTime")]
+
+		[JsonProperty ("eventTime")]
 		public string EventTime { get; set; }
-		[JsonProperty("isFood")]
+
+		[JsonProperty ("isFood")]
 		public bool IsFood { get; set; }
-		[JsonProperty("bookablehours")]
+
+		[JsonProperty ("bookablehours")]
 		public int BookableTime { get; set; }
 
-		public bool Favorite { get; set; } // won't have a json property, as it is only set by the user
+		public bool Favorite { get; set; }
+		// won't have a json property, as it is only set by the user
 
-		[JsonProperty("pictureurl")]
+		[JsonProperty ("pictureurl")]
 		public string PictureUrl { get; set; }
 
 		public override string ToString ()

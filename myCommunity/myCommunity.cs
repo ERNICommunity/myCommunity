@@ -12,10 +12,7 @@ namespace myCommunity
 			var MainNav = new NavigationPage (new EventsListPage ());
 			MainPage = MainNav;
 		}
-
-
-
-
+			
 		protected override void OnStart ()
 		{
 			// Handle when your app starts
