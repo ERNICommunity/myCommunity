@@ -13,8 +13,13 @@ namespace myCommunity
 		{
 			Title = "myCommunity Events";
 
+			// the list view will contain the list of the CommunityEvents
 			listView = new ListView ();
+
+			// button to manually fetch data
 			var b = new Button { Text = "Refresh" };
+
+			// an activity indicator which will be shown while data is loading
 			var spinner = new ActivityIndicator
 			{
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -28,7 +33,7 @@ namespace myCommunity
 				// grab the list as an array of CommunityEvents from the webservice
 				var webservice = new RestClient ();
 
-				// start a activity indicator
+				// start the activity indicator
 				spinner.IsVisible=true;
 				spinner.IsRunning=true;
 
