@@ -18,10 +18,10 @@ namespace myCommunity
 			};
 
 			// bind the label to the "topic" property of the CommunityEvent class
-			topicLabel.SetBinding (Label.TextProperty, "Topic");
+			topicLabel.SetBinding (Label.TextProperty, "title");
 
 			// bind the sublabel to the "type" property
-			typeLabel.SetBinding (Label.TextProperty, "Type");
+			typeLabel.SetBinding (Label.TextProperty, "eventDate");
 
 			// create a stacklayout with one child, which is the topic (for now, at least)
 			// ideas for later: we can show more details in a clever way, or with icons... and group by month
