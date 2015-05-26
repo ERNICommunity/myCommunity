@@ -16,7 +16,7 @@ namespace myCommunity
 			listView = new ListView ();
 			var b = new Button { Text = "Refresh" };
 
-			// for now, make the fetching of the list a manual thing
+			// for now, make the fetching of the list a manual thing by clicking on this button
 			b.Clicked += async (sender, e) => {
 
 				// grab the list as an array of CommunityEvents from the webservice
@@ -59,6 +59,29 @@ namespace myCommunity
 			Content = layout;
 		}
 
+		// TODO try to put the call to the API in onAppearing and have a spinner show while it is working
+
+//		protected override async void onAppearing()
+//		{
+//			base.OnAppearing();
+//
+//			try
+//			{
+//				var webservice = new RestClient();
+//				// activate/show spinner here
+//				this.listView.ItemsSource = await webservice.GetEventsAsync();
+//				
+//			}
+//			catch (Exception exception)
+//			{
+//				this.DisplayAlert("Error", exception.Message, "OK");
+//			}
+//			finally 
+//			}	
+//			 inactivate the spinner
+//			}
+//			
+//		}
 
 	}
 

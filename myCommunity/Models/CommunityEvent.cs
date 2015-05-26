@@ -9,6 +9,7 @@ namespace myCommunity
 		{
 			
 		}
+
 		[JsonProperty("id")]
 		public string ID { get; set; }
 		[JsonProperty("title")]
@@ -22,15 +23,15 @@ namespace myCommunity
 		[JsonProperty("organiser")]
 		public string Organiser { get; set; }
 		[JsonProperty("eventDate")]
-		public string EventDate { get; set; } // TODO make this a proper DateTime
-
-		public string EventTime { get; set; } // TODO make this a proper DateTime... need to then StringFormat in the XAML
+		public string EventDate { get; set; }
+		[JsonProperty("eventTime")]
+		public string EventTime { get; set; }
 		[JsonProperty("isFood")]
 		public bool IsFood { get; set; }
 		[JsonProperty("bookablehours")]
 		public int BookableTime { get; set; }
 
-		public bool Favorite { get; set; }
+		public bool Favorite { get; set; } // won't have a json property, as it is only set by the user
 
 		[JsonProperty("pictureurl")]
 		public string PictureUrl { get; set; }
