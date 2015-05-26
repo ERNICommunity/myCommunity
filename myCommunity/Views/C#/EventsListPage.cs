@@ -35,20 +35,18 @@ namespace myCommunity
 				// get the current CommunityEvent selected by the user and assign it to a temp variable
 				var communityEvent = (CommunityEvent)e.SelectedItem;
 
-				DisplayAlert("Event info", communityEvent.ToString(), "OK", null);
+//				DisplayAlert("Event info", communityEvent.ToString(), "OK", "cancel");
 
-				// TODO UNCOMMENT THIS TO GET EVERYTHING BACK TO HOW IT WAS 
-				// create the DetailsPage
-//				var detailsPage = new DetailsXaml();
-				// bind the CommunityEvent source to the DetailsPage target
-//				detailsPage.BindingContext = communityEvent;
+//				create the DetailsPage
+				var detailsPage = new DetailsXaml();
 
+//				bind the CommunityEvent source to the DetailsPage target
+				detailsPage.BindingContext = communityEvent;
 
-				// bring up the details page
-//				Navigation.PushAsync (detailsPage);
+//				bring up the details page
+				Navigation.PushAsync (detailsPage);
 
-
-							
+											
 			};
 
 			// set stack layout and add the listview to this

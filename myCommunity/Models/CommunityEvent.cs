@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace myCommunity
 {
@@ -8,30 +9,35 @@ namespace myCommunity
 		{
 			
 		}
+		[JsonProperty("id")]
+		public string ID { get; set; }
+		[JsonProperty("title")]
+		public string Title { get; set; }
+		[JsonProperty("type")]
+		public string Type { get; set; }
+		[JsonProperty("location")]
+		public string Location { get; set; }
+		[JsonProperty("description")]
+		public string Description { get; set; }
+		[JsonProperty("organiser")]
+		public string Organiser { get; set; }
+		[JsonProperty("eventDate")]
+		public string EventDate { get; set; } // TODO make this a proper DateTime
 
-//		public int ID { get; set; }
-//		public string Topic { get; set; }
-//		public string Type { get; set; }
-//		public string Location { get; set; }
-//		public string Description { get; set; }
-//		public string Responsible { get; set; }
-//		public string EventDate { get; set; } // TODO make this a proper DateTime
-//		public string EventTime { get; set; } // TODO make this a proper DateTime... need to then StringFormat in the XAML
-//		public bool IsFood { get; set; }
-//		public int BookableTime { get; set; }
-//		public bool Favorite { get; set; }
+		public string EventTime { get; set; } // TODO make this a proper DateTime... need to then StringFormat in the XAML
+		[JsonProperty("isFood")]
+		public bool IsFood { get; set; }
+		[JsonProperty("bookablehours")]
+		public int BookableTime { get; set; }
 
-		public string id { get; set; }
-		public string title { get; set; }
-		public string description { get; set; }
-		public string eventDate { get; set; }
-		public string organiser { get; set; }
-		public string bookablehours { get; set; }
-		public string pictureurl { get; set; }
+		public bool Favorite { get; set; }
+
+		[JsonProperty("pictureurl")]
+		public string PictureUrl { get; set; }
 
 		public override string ToString ()
 		{
-			return String.Format ("{0}: {1}, {2}, {3}", id, title, organiser, eventDate);
+			return String.Format ("{0}: {1}, {2}, {3}", ID, Title, Organiser, EventDate);
 		}
 	}
 
