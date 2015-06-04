@@ -10,7 +10,7 @@ namespace myCommunity
 		public App ()
 		{
 			// The root page of your application
-            MainNavigation = new NavigationPage(new EventsListPage());
+            MainNavigation = new NavigationPage(new Views.XAML.MainTabPage());
 
             MainPage = MainNavigation;
 		}

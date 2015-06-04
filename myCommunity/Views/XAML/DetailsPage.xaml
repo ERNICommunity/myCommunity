@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="myCommunity.Views.XAML.DetailsPage" Title="Events">
   <ScrollView>
-    <StackLayout Spacing="5">
+    <StackLayout Spacing="15">
 
       <Image Source="{Binding PictureUrl}" HeightRequest="200" HorizontalOptions="FillAndExpand" Aspect="Fill"/>
       
-      <ContentView Padding="15,0,15,20">
+      <ContentView Padding="15,0,15,10">
         <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" TextColor="#0054A6" />
       </ContentView>
 
@@ -17,14 +17,14 @@
         <StackLayout Orientation="Vertical">
           <Label Text="DATE &amp; TIME" FontAttributes="Bold" TextColor="#9D9FA2" />
           <Label Text="{Binding EventDate}" TextColor="#9D9FA2"/>
-          <Label Text="{Binding EventTime}" TextColor="#9D9FA2"/>
+          <!--<Label Text="{Binding EventTime}" TextColor="#9D9FA2"/>-->
         </StackLayout>
       </StackLayout>
       <StackLayout Padding="15,0,0,0" Orientation="Horizontal">
         <Image Source="ic_location.png" VerticalOptions="Start"/>
 
         <StackLayout>
-          <Label Text="Location" FontAttributes="Bold" TextColor="#9D9FA2"/>
+          <Label Text="LOCATION" FontAttributes="Bold" TextColor="#9D9FA2"/>
           <Label Text="{Binding Location}" TextColor="#9D9FA2"/>
         </StackLayout>
       </StackLayout>
@@ -32,7 +32,7 @@
         <Image Source="ic_type.png" VerticalOptions="Start"/>
 
         <StackLayout>
-          <Label Text="Type" FontAttributes="Bold" TextColor="#9D9FA2"/>
+          <Label Text="TYPE" FontAttributes="Bold" TextColor="#9D9FA2"/>
           <Label Text="{Binding Type}" TextColor="#9D9FA2"/>
         </StackLayout>
       </StackLayout>
@@ -40,7 +40,7 @@
         <Image Source="ic_description.png" VerticalOptions="Start"/>
 
         <StackLayout>
-          <Label Text="Description" FontAttributes="Bold" TextColor="#9D9FA2"/>
+          <Label Text="DESCRIPTION" FontAttributes="Bold" TextColor="#9D9FA2"/>
           <Label Text="{Binding Description}" TextColor="#9D9FA2"/>
         </StackLayout>
       </StackLayout>

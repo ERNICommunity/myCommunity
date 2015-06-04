@@ -18,7 +18,7 @@ namespace myCommunity.Views.XAML
 
         protected override void OnAppearing()
         {
-            NavigationPage.SetTitleIcon(this, "ic_type.png");
+            NavigationPage.SetTitleIcon(this, "ic_event_date.png");
             App.MainNavigation.BarTextColor = Color.FromHex("333333");
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
             base.OnAppearing();
