@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace myCommunity.Views.XAML
 {
-    public partial class DetailPage : ContentPage
+    public partial class DetailsPage : ContentPage
     {
-        public DetailPage()
+        public DetailsPage()
         {
             InitializeComponent();
             //this.SetBinding(ContentPage.TitleProperty, "Title"); // display the "Title" field as the title of the page

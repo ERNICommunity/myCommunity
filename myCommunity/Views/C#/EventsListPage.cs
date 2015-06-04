@@ -59,7 +59,7 @@ namespace myCommunity
 				var communityEvent = (CommunityEvent)e.SelectedItem;
 
 //				create the DetailsPage
-				var detailsPage = new DetailPage ();
+				var detailsPage = new DetailsPage ();
 
 //				bind the CommunityEvent source to the DetailsPage target
 				detailsPage.BindingContext = communityEvent;
