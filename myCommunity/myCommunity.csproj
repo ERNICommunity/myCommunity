@@ -36,8 +36,8 @@
     <Compile Include="IsFoodValueConverter.cs" />
     <Compile Include="Views\C#\EventsListPage.cs" />
     <Compile Include="Views\C#\EventViewCell.cs" />
-    <Compile Include="Views\XAML\DetailsXaml.xaml.cs">
-      <DependentUpon>..\..\XAML\DetailsPage.xaml</DependentUpon>
+    <Compile Include="Views\XAML\DetailPage.xaml.cs">
+      <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\RestClient.cs" />
     <Compile Include="Views\XAML\EventsListPage.xaml.cs">
@@ -83,7 +83,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\XAML\DetailsPage.xaml">
+    <EmbeddedResource Include="Views\XAML\EventsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -95,6 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\XAML\NewsListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\XAML\DetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

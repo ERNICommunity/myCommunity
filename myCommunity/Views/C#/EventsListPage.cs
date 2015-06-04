@@ -2,6 +2,7 @@ using System;
 
 using Xamarin.Forms;
 using System.Diagnostics;
+using myCommunity.Views.XAML;
 
 namespace myCommunity
 {
@@ -11,6 +12,7 @@ namespace myCommunity
 
 		public EventsListPage ()
 		{
+            
 			Title = "myCommunity Events";
 
 			// the list view will contain the list of the CommunityEvents
@@ -57,7 +59,7 @@ namespace myCommunity
 				var communityEvent = (CommunityEvent)e.SelectedItem;
 
 //				create the DetailsPage
-				var detailsPage = new DetailsXaml ();
+				var detailsPage = new DetailPage ();
 
 //				bind the CommunityEvent source to the DetailsPage target
 				detailsPage.BindingContext = communityEvent;
@@ -77,6 +79,13 @@ namespace myCommunity
 			//set the content property of the Content Page to the defined layout with it's children (i.e. the list)
 			Content = layout;
 		}
+
+        protected override void OnAppearing()
+        {
+            App.MainNavigation.BarTextColor = Color.FromHex("333333");
+            App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
+            base.OnAppearing();
+        }
 			
 	}
 

@@ -6,11 +6,13 @@ namespace myCommunity
 {
 	public class App : Application
 	{
+        public static NavigationPage MainNavigation { get; set; }
 		public App ()
 		{
 			// The root page of your application
-			var MainNav = new NavigationPage (new EventsListPage ());
-			MainPage = MainNav;
+            MainNavigation = new NavigationPage(new EventsListPage());
+
+            MainPage = MainNavigation;
 		}
 			
 		protected override void OnStart ()
