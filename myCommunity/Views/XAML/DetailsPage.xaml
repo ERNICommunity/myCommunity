@@ -1,14 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:myCommunity;assembly=myCommunity" x:Class="myCommunity.DetailsXaml" Padding="0, 20, 0, 0">
-	<ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Image Source="ernicommunity.jpeg" Grid.Row="0" HorizontalOptions="FillAndExpand" Aspect="Fill"/>
+        <StackLayout Grid.Row="1" Padding="15">
+            <Label Text="{Binding Title}" FontSize="18" TextColor="Blue" />
+            <StackLayout Orientation="Horizontal">
+                <Image Source="icon.png" VerticalOptions="Start" />
+                <StackLayout Orientation="Vertical">
+                    <Label Text="DATE &amp; TIME" />
+                    <Label Text="{Binding EventDate}" />
+                    <Label Text="{Binding Path=EventTime}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Padding="15">
+            <Label Text="{Binding Path=Location}" />
+            <StackLayout>
+                <Image Source=""/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+	<!--<ContentPage.Resources>
 		<ResourceDictionary>
 			<local:IsFoodValueConverter x:Key="foodConverter">
 			</local:IsFoodValueConverter>
 		</ResourceDictionary>
-	</ContentPage.Resources>
-	<Grid>
+	</ContentPage.Resources>-->
+	<!--<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="20" />
+			<RowDefinition Height="100" />
 			<RowDefinition Height="30" />
 			<RowDefinition Height="20" />
 			<RowDefinition Height="30" />
@@ -17,16 +42,17 @@
 			<RowDefinition Height="20" />
 			<RowDefinition Height="30" />
 			<RowDefinition Height="20" />
-			<RowDefinition Height="*" /> <!-- 10th row: description, so take up all the rest of the space -->
+			<RowDefinition Height="*" /> --><!-- 10th row: description, so take up all the rest of the space --><!--
 			<RowDefinition Height="25" />
 			<RowDefinition Height="25" />
 			<RowDefinition Height="50" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100" />
 			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="200" />
 		</Grid.ColumnDefinitions>
-		<!-- The first two rows span only one column to make space for the image on the right -->
+		--><!-- The first two rows span only one column to make space for the image on the right --><!--
+        <Image Source="" gri/>
 		<Label Text="Date: " Grid.Row="0" Grid.Column="0" TextColor="#BBBBBB" />
 		<Label Text="{Binding Path=EventDate}" FontSize="Large" Grid.Row="1" Grid.Column="0" TextColor="White" BackgroundColor="Gray" />
 		<Label Text="Time: " Grid.Row="2" Grid.Column="0" TextColor="#BBBBBB" />
@@ -43,10 +69,10 @@
 		<Label Text="Add to favorites: " Grid.Row="11" Grid.Column="0" />
 		<Switch IsToggled="{Binding Path=Favorite}" HorizontalOptions="StartAndExpand" Grid.Row="11" Grid.Column="1" />
 
-				<!-- Uses a custom converter to convert the bool to a pizza (defined in IsFoodValueConverter) -->
+				--><!-- Uses a custom converter to convert the bool to a pizza (defined in IsFoodValueConverter) --><!--
 		<Label Text="Food provided: " Grid.Row="12" Grid.Column="0" />
 		<Image Source="{Binding Path=IsFood, Converter={StaticResource foodConverter}}" Grid.Row="12" Grid.Column="1" />
-		<!-- Image on top right -->
+		--><!-- Image on top right --><!--
 		<Image Source="ernicommunity.jpeg" Grid.Row="0" Grid.Column="1" Grid.RowSpan="6" />
-	</Grid>
+	</Grid>-->
 </ContentPage>

@@ -12,7 +12,7 @@ namespace myCommunity
 		{
 			
 				this.SetBinding (ContentPage.TitleProperty, "Title"); // display the "Title" field as the title of the page
-
+                
 				// set the page to allow back navigation
 				NavigationPage.SetHasNavigationBar (this, true);
 
