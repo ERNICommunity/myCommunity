@@ -8,7 +8,7 @@
 
       <ListView x:Name="ListViewEvents" HasUnevenRows="True" 
                 ItemTapped="ListViewEvents_ItemTapped"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-40}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageDrawer, Property=Height, Constant=-10}"
                 >
         <ListView.ItemTemplate>

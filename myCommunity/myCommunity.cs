@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿using myCommunity.Views.XAML;
+using System;
 using Xamarin.Forms;
 
 namespace myCommunity
@@ -10,7 +10,7 @@ namespace myCommunity
 		public App ()
 		{
 			// The root page of your application
-            MainNavigation = new NavigationPage(new Views.XAML.MainTabPage());
+            MainNavigation = new NavigationPage(new MainTabPage());
 
             MainPage = MainNavigation;
 		}

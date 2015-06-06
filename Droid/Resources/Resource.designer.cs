@@ -41,6 +41,22 @@ namespace myCommunity.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f030000
+			public const int custom_theme_color = 2130903040;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -57,22 +73,31 @@ namespace myCommunity.Droid
 			public const int ic_event_date = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ic_location = 2130837508;
+			public const int ic_launcher = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_time = 2130837509;
+			public const int ic_location = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_type = 2130837510;
+			public const int ic_time = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int icon = 2130837511;
+			public const int ic_type = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int nopizza = 2130837512;
+			public const int icon = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int pizza = 2130837513;
+			public const int nopizza = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int pizza = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int splash_drawable = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int splashlogo = 2130837516;
 			
 			static Drawable()
 			{
@@ -80,6 +105,22 @@ namespace myCommunity.Droid
 			}
 			
 			private Drawable()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int Theme_Splash = 2130968576;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

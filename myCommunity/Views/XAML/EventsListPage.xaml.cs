@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myCommunity.Services;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace myCommunity.Views.XAML
         public EventsListPage()
         {
             InitializeComponent();
+
+            if (ListViewEvents.ItemsSource == null)
+            {
+                UpdateList();
+            }
         }
 
         protected override void OnAppearing()
@@ -21,10 +27,7 @@ namespace myCommunity.Views.XAML
 
             App.MainNavigation.BarTextColor = Color.FromHex("333333");
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
-            if (ListViewEvents.ItemsSource == null)
-            {
-                UpdateList();
-            }
+
         }
 
         public async void UpdateList()
@@ -34,18 +37,15 @@ namespace myCommunity.Views.XAML
 
             // start the activity indicator
             this.IsBusy = true;
-            //spinner.IsVisible = true;
-            //spinner.IsRunning = true;
 
             // try to fetch from the webservice
             var communityEventsArray = await webservice.GetEventsAsync();
 
             // stop activity indicator
             this.IsBusy = false;
-            //spinner.IsRunning = false;
-            //spinner.IsVisible = false;
 
             Debug.WriteLine(communityEventsArray.ToString());
+
             // and assign it to the list source
             ListViewEvents.ItemsSource = communityEventsArray;
         }

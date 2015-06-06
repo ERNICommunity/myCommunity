@@ -1,0 +1,2 @@
+alias: erni-mycommunity
+password: m4c033un1t4
