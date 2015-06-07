@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using myCommunity.Models;
 
-namespace myCommunity
+namespace myCommunity.Services
 {
-	public class RestClient
+	public class RestClient : IRestRepository
 	{
 		public RestClient ()
 		{
