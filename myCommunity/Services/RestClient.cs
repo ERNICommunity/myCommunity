@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace myCommunity
+namespace myCommunity.Services
 {
-	public class RestClient
+	public class RestClient : IRestRepository
 	{
 		public RestClient ()
 		{
