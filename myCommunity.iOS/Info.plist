@@ -5,11 +5,11 @@
 	<key>CFBundleDisplayName</key>
 	<string>myCommunity</string>
 	<key>CFBundleIdentifier</key>
-	<string>ch.erninet.community.mycommunity</string>
+	<string>ch.erni.myCommunity</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.6</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.6</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -18,8 +18,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -32,7 +30,19 @@
 	<string>6.0</string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>Icon-72@2x.png</string>
+		<string>Icon-72.png</string>
+		<string>Icon@2x.png</string>
+		<string>Icon-60@2x.png</string>
+		<string>Icon-76.png</string>
+		<string>Icon-76@2x.png</string>
+		<string>Default@2x.png</string>
 		<string>Default-568h@2x.png</string>
+		<string>Icon-Small-50@2x.png</string>
+		<string>Icon-Small-50.png</string>
+		<string>Icon-Small-40.png</string>
+		<string>Icon-Small-40@2x.png</string>
+		<string>Icon-Small.png</string>
 	</array>
 </dict>
 </plist>

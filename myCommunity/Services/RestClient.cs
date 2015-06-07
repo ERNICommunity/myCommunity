@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using myCommunity.Models;
 
 namespace myCommunity
 {
@@ -27,6 +28,24 @@ namespace myCommunity
 			return communityEvents;
 
 		}
+
+        public async Task<News[]> GetNewsAsync()
+        {
+
+            var client = new System.Net.Http.HttpClient();
+
+            client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
+
+            var response = await client.GetAsync("news");
+
+            var eventsJson = response.Content.ReadAsStringAsync().Result;
+            Debug.WriteLine("JSON String: " + eventsJson);
+
+            News[] news = JsonConvert.DeserializeObject<News[]>(eventsJson);
+
+            return news;
+
+        }
 	}
 }
 

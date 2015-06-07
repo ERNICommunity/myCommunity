@@ -26,6 +26,8 @@ namespace myCommunity.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::myCommunity.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Forms.Platform.Resource.String.Hello = global::myCommunity.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -44,8 +46,8 @@ namespace myCommunity.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int custom_theme_color = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int custom_theme_color = 2130968576;
 			
 			static Color()
 			{
@@ -109,11 +111,30 @@ namespace myCommunity.Droid
 			}
 		}
 		
+		public partial class String
+		{
+			
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
+			
+			// aapt resource value: 0x7f030000
+			public const int Hello = 2130903040;
+			
+			static String()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private String()
+			{
+			}
+		}
+		
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int Theme_Splash = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int Theme_Splash = 2131034112;
 			
 			static Style()
 			{

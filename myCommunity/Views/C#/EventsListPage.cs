@@ -3,6 +3,7 @@ using System;
 using Xamarin.Forms;
 using System.Diagnostics;
 using myCommunity.Views.XAML;
+using myCommunity.Models;
 
 namespace myCommunity
 {

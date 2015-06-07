@@ -1,4 +1,5 @@
-﻿using myCommunity.Services;
+﻿using myCommunity.Models;
+using myCommunity.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,10 +16,7 @@ namespace myCommunity.Views.XAML
         {
             InitializeComponent();
 
-            if (ListViewEvents.ItemsSource == null)
-            {
-                UpdateList();
-            }
+
         }
 
         protected override void OnAppearing()
@@ -27,7 +25,10 @@ namespace myCommunity.Views.XAML
 
             App.MainNavigation.BarTextColor = Color.FromHex("333333");
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
-
+            if (ListViewEvents.ItemsSource == null)
+            {
+                UpdateList();
+            }
         }
 
         public async void UpdateList()

@@ -34,6 +34,7 @@ Global
 		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B34B8BA2-E7E0-4350-9744-17992D4C1A5B}.Ad-Hoc|Mixed Platforms.Build.0 = Release|Any CPU

@@ -1,36 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:myCommunity.Views.XAML;assembly=myCommunity"
              x:Class="myCommunity.Views.XAML.EventsListPage"
+             
              Title="Events">
   <StackLayout>
     <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
-      <ListView x:Name="ListViewEvents" HasUnevenRows="True" 
+      <ListView x:Name="ListViewEvents"
                 ItemTapped="ListViewEvents_ItemTapped"
+                RowHeight="290"
+                HasUnevenRows="True"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageDrawer, Property=Height, Constant=-10}"
-                >
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageDrawer, Property=Height, Constant=-10}">
         <ListView.ItemTemplate>
           <DataTemplate>
-            <ViewCell>
-              <StackLayout HorizontalOptions="FillAndExpand" Spacing="6">
-                <Image HorizontalOptions="FillAndExpand" Source="{Binding PictureUrl}" Aspect="AspectFill"/>
-                <StackLayout Padding="10">
-                  <Label Text="{Binding Title}" TextColor="#0054A6" FontAttributes="Bold"/>
-                  <StackLayout Orientation="Horizontal">
-                    <Image Source="ic_event_date.png"/>
-                    <Label Text="{Binding EventDate}" TextColor="#909090"/>
-                  </StackLayout>
-                </StackLayout>
-
-              </StackLayout>
-            </ViewCell>
+            <views:EventsViewCell/>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <Image x:Name="ImageDrawer" Source="calendar_drawer.png" HorizontalOptions="FillAndExpand"/>
-      <Label Text="CALENDAR" TextColor="#0054A6" FontAttributes="Bold" XAlign="Center" 
+      <Image x:Name="ImageDrawer" Source="calendar_drawer.png" Aspect="Fill"
+             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
+      <Label Text="CALENDAR" TextColor="#0054A6" FontAttributes="Bold" XAlign="Center"
              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"/>
     </RelativeLayout>

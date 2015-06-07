@@ -5,7 +5,7 @@
              x:Class="myCommunity.Views.XAML.MainTabPage"
             Title="myCommunity Events">
   <TabbedPage.Children>
-    <views:EventsListPage />
-    <views:NewsListPage/>
+    <views:EventsListPage Icon="ic_event_date.png"/>
+    <views:NewsListPage Icon="ic_news.png"/>
   </TabbedPage.Children>
 </TabbedPage>

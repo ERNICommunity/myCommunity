@@ -1,7 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:myCommunity.Views.XAML;assembly=myCommunity"
              x:Class="myCommunity.Views.XAML.NewsListPage"
              Title="News">
-  <Label Text="News" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout>
+    <ListView x:Name="ListViewNews"
+              ItemTapped="ListViewNews_ItemTapped"
+              RowHeight="320"
+              HasUnevenRows="True"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <views:NewsViewCell/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
 </ContentPage>

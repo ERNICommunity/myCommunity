@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCommunity.Views.XAML.NewsDetailsPage" Title="News">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Label">
+        <Setter Property="Font">
+          <OnPlatform x:TypeArguments="Font"
+                      Android="Medium"
+                      iOS="Small"
+                      WinPhone="Small"/>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ScrollView>
+    <StackLayout Spacing="15">
+
+      <Image Source="{Binding PictureUrls[0]}"
+             HeightRequest="200"
+             HorizontalOptions="FillAndExpand"
+             Aspect="Fill"/>
+
+      <ContentView Padding="15,0,15,10">
+        <Label Text="{Binding Title}"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               TextColor="#0054A6" />
+      </ContentView>
+      <StackLayout Padding="15,0,15,0"
+                   Orientation="Horizontal">
+
+          <Label Text="{Binding Description}"
+                 TextColor="#9D9FA2"/>
+      </StackLayout>
+
+      <StackLayout Padding="15,0,15,0"
+                   Orientation="Horizontal">
+
+        <Label Text="{Binding Author}"
+               TextColor="#0054A6" HorizontalOptions="FillAndExpand" XAlign="End"/>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+
+</ContentPage>

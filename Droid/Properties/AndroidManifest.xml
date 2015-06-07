@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.0.2" package="ch.erninet.community.mycommunity" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.3" package="ch.erninet.community.mycommunity" android:installLocation="auto" android:versionCode="3">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="myCommunity" android:theme="@android:style/Theme.Holo.Light" android:icon="@drawable/ic_launcher"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

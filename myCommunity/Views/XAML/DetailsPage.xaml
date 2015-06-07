@@ -2,6 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="myCommunity.Views.XAML.DetailsPage" Title="Events">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Label">
+        <Setter Property="Font">
+          <OnPlatform x:TypeArguments="Font" Android="Medium" iOS="Small" WinPhone="Small"/>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
   <ScrollView>
     <StackLayout Spacing="15">
 
@@ -15,7 +24,7 @@
       <StackLayout Padding="15,0,0,0" Orientation="Horizontal">
         <Image Source="ic_time.png" VerticalOptions="Start" />
         <StackLayout Orientation="Vertical">
-          <Label Text="DATE &amp; TIME" FontAttributes="Bold" TextColor="#9D9FA2" />
+          <Label Text="DATE &amp; TIME" FontAttributes="Bold" TextColor="#9D9FA2"/>
           <Label Text="{Binding EventDate}" TextColor="#9D9FA2"/>
           <!--<Label Text="{Binding EventTime}" TextColor="#9D9FA2"/>-->
         </StackLayout>

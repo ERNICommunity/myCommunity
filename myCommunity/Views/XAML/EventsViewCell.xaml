@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCommunity.Views.XAML.EventsViewCell">
+  <StackLayout HorizontalOptions="FillAndExpand" Spacing="6">
+    <ContentView Padding="0" IsClippedToBounds="True">
+      <Image HorizontalOptions="FillAndExpand" Source="{Binding PictureUrl}" Aspect="AspectFill" HeightRequest="200"/>
+    </ContentView>
+    <StackLayout Padding="10">
+      <Label Text="{Binding Title}" TextColor="#0054A6" FontAttributes="Bold"/>
+      <StackLayout Orientation="Horizontal">
+        <Image Source="ic_event_date.png"/>
+        <Label Text="{Binding EventDate}" TextColor="#909090"/>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+</ViewCell>
