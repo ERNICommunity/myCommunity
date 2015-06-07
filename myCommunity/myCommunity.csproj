@@ -34,7 +34,6 @@
     <Compile Include="myCommunity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\CommunityEvent.cs" />
-    <Compile Include="IsFoodValueConverter.cs" />
     <Compile Include="Services\IRestRepository.cs" />
     <Compile Include="Services\RestClient.cs">
       <SubType>Code</SubType>
