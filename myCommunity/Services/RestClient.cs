@@ -14,8 +14,9 @@ namespace myCommunity.Services
 
 		public async Task<CommunityEvent[]> GetEventsAsync () {
 
-			var client = new System.Net.Http.HttpClient ();
 
+			var client = new System.Net.Http.HttpClient ();
+            client.Timeout = TimeSpan.FromSeconds(10);
 			client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
 
 			var response = await client.GetAsync("events");
@@ -26,6 +27,7 @@ namespace myCommunity.Services
 			CommunityEvent[] communityEvents = JsonConvert.DeserializeObject<CommunityEvent[]>(eventsJson);
 
 			return communityEvents;
+            
 
 		}
 
@@ -33,7 +35,7 @@ namespace myCommunity.Services
         {
 
             var client = new System.Net.Http.HttpClient();
-
+            client.Timeout = TimeSpan.FromSeconds(10);
             client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
 
             var response = await client.GetAsync("news");

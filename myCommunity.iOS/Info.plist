@@ -7,9 +7,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>ch.erni.myCommunity</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.6</string>
+	<string>1.0.8</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.6</string>
+	<string>1.0.8</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

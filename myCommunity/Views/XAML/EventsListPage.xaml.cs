@@ -45,8 +45,6 @@ namespace myCommunity.Views.XAML
             // stop activity indicator
             this.IsBusy = false;
 
-            Debug.WriteLine(communityEventsArray.ToString());
-
             // and assign it to the list source
             ListViewEvents.ItemsSource = communityEventsArray;
         }

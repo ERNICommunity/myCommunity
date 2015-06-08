@@ -1,4 +1,5 @@
 ﻿using myCommunity.Models;
+using myCommunity.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,22 +32,28 @@ namespace myCommunity.Views.XAML
 
         public async void UpdateList()
         {
-            // grab the list as an array of CommunityEvents from the webservice
-            var webservice = new RestClient();
+            try
+            {
 
-            // start the activity indicator
-            this.IsBusy = true;
+                // grab the list as an array of CommunityEvents from the webservice
+                var webservice = new RestClient();
 
-            // try to fetch from the webservice
-            var communityEventsArray = await webservice.GetNewsAsync();
+                // start the activity indicator
+                this.IsBusy = true;
 
-            // stop activity indicator
-            this.IsBusy = false;
+                // try to fetch from the webservice
+                var communityEventsArray = await webservice.GetNewsAsync();
 
-            Debug.WriteLine(communityEventsArray.ToString());
+                // stop activity indicator
+                this.IsBusy = false;
 
-            // and assign it to the list source
-            ListViewNews.ItemsSource = communityEventsArray;
+                // and assign it to the list source
+                ListViewNews.ItemsSource = communityEventsArray;
+            }
+            catch(Exception ex)
+            {
+                DisplayAlert("Error", ex.Message, "OK");
+            }
         }
 
         protected async void ListViewNews_ItemTapped(object sender, ItemTappedEventArgs e)

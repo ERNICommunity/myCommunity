@@ -9,6 +9,7 @@ namespace myCommunity.Services
 {
     public interface IRestRepository
     {
-       Task<CommunityEvent[]> GetEventsAsync();
+        Task<CommunityEvent[]> GetEventsAsync();
+        Task<News[]> GetNewsAsync();
     }
 }
