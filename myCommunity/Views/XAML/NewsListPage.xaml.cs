@@ -52,7 +52,7 @@ namespace myCommunity.Views.XAML
             }
             catch(Exception ex)
             {
-                DisplayAlert("Error", ex.Message, "OK");
+                Debug.WriteLine(ex.Message);
             }
         }
 

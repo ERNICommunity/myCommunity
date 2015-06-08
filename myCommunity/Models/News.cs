@@ -24,6 +24,16 @@ namespace myCommunity.Models
         [JsonProperty("pictureurls")]
         public string[] PictureUrls { get; set; }
 
+        public string FirstPicUrl
+        {
+            get
+            {
+                if (PictureUrls == null) return "";
+
+                return PictureUrls.Any() ? PictureUrls[0] : "";
+            }
+        }
+
         public string ShortDescription
         {
             get {

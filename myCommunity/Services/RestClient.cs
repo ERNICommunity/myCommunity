@@ -42,7 +42,6 @@ namespace myCommunity.Services
 
             var eventsJson = response.Content.ReadAsStringAsync().Result;
             Debug.WriteLine("JSON String: " + eventsJson);
-
             News[] news = JsonConvert.DeserializeObject<News[]>(eventsJson);
 
             return news;
