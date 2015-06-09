@@ -89,7 +89,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +154,7 @@
     <BundleResource Include="Resources\ic_type%402x.png" />
     <BundleResource Include="Resources\ic_news.png" />
     <BundleResource Include="Resources\ic_news%402x.png" />
+    <BundleResource Include="Resources\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\myCommunity\myCommunity.csproj">

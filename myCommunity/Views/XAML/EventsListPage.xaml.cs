@@ -56,7 +56,7 @@ namespace myCommunity.Views.XAML
                 }
                 catch (Exception ex)
                 {
-                    UserDialogs.Instance.Alert("Webservice call failed!","Error","OK");
+                    UserDialogs.Instance.Alert("Please check internet connection.", "Loading Failed", "OK");
                 }
                 this.IsBusy = false;
             }

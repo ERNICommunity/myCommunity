@@ -37,7 +37,7 @@ namespace myCommunity.Views.XAML
             // grab the list as an array of CommunityEvents from the webservice
             var webservice = new RestClient();
 
-            using (UserDialogs.Instance.Loading("Updating Events..."))
+            using (UserDialogs.Instance.Loading("Updating News..."))
             {
                 // start the activity indicator
                 this.IsBusy = true;
@@ -55,7 +55,7 @@ namespace myCommunity.Views.XAML
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
-                    UserDialogs.Instance.Alert("Webservice call failed!", "Error", "OK");
+                    UserDialogs.Instance.Alert("Please check internet connection.", "Loading Failed", "OK");
                 }
                 // stop activity indicator
                 this.IsBusy = false;

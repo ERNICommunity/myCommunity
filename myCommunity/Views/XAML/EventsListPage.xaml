@@ -6,7 +6,7 @@
              
              Title="Events">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="Refresh" Clicked="Refresh_Clicked"></ToolbarItem>
+        <ToolbarItem Icon="ic_action_refresh.png" Clicked="Refresh_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
         <RelativeLayout VerticalOptions="FillAndExpand"

@@ -5,7 +5,7 @@
              x:Class="myCommunity.Views.XAML.NewsListPage"
              Title="News">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="Refresh"
+        <ToolbarItem Icon="ic_action_refresh.png"
                      Clicked="Refresh_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
   <StackLayout>

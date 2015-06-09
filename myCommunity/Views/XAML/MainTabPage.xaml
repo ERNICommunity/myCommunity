@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:myCommunity.Views.XAML;assembly=myCommunity"
              x:Class="myCommunity.Views.XAML.MainTabPage"
-            Title="myCommunity Events">
+            Title="myCommunity">
   <TabbedPage.Children>
     <views:EventsListPage Icon="ic_event_date.png"/>
     <views:NewsListPage Icon="ic_news.png"/>
