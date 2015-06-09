@@ -17,8 +17,7 @@
   <ScrollView>
     <StackLayout Spacing="15">
 
-      <Image Source="{Binding PictureUrls[0]}"
-             HeightRequest="200"
+      <Image Source="{Binding FirstPicUrl}"
              HorizontalOptions="FillAndExpand"
              Aspect="Fill"/>
 

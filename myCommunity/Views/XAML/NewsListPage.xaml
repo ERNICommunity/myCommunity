@@ -4,6 +4,10 @@
              xmlns:views="clr-namespace:myCommunity.Views.XAML;assembly=myCommunity"
              x:Class="myCommunity.Views.XAML.NewsListPage"
              Title="News">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Refresh"
+                     Clicked="Refresh_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
   <StackLayout>
     <ListView x:Name="ListViewNews"
               ItemTapped="ListViewNews_ItemTapped"
