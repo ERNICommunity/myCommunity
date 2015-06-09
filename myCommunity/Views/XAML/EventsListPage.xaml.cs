@@ -62,6 +62,11 @@ namespace myCommunity.Views.XAML
             }
         }
 
+        protected void Refresh_Clicked(object sender, EventArgs e)
+        {
+            UpdateList();
+        }
+
         protected async void ListViewEvents_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             // get the current CommunityEvent selected by the user and assign it to a temp variable

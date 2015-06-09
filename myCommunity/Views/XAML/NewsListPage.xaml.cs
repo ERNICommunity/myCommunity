@@ -1,4 +1,5 @@
-﻿using myCommunity.Models;
+﻿using Acr.UserDialogs;
+using myCommunity.Models;
 using myCommunity.Services;
 using System;
 using System.Collections.Generic;
@@ -36,26 +37,34 @@ namespace myCommunity.Views.XAML
             // grab the list as an array of CommunityEvents from the webservice
             var webservice = new RestClient();
 
-            // start the activity indicator
-            this.IsBusy = true;
-            try
+            using (UserDialogs.Instance.Loading("Updating Events..."))
             {
+                // start the activity indicator
+                this.IsBusy = true;
+                try
+                {
 
-                // try to fetch from the webservice
-                var communityEventsArray = await webservice.GetNewsAsync();
+                    // try to fetch from the webservice
+                    var communityEventsArray = await webservice.GetNewsAsync();
 
 
 
-                // and assign it to the list source
-                ListViewNews.ItemsSource = communityEventsArray;
+                    // and assign it to the list source
+                    ListViewNews.ItemsSource = communityEventsArray;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    UserDialogs.Instance.Alert("Webservice call failed!", "Error", "OK");
+                }
+                // stop activity indicator
+                this.IsBusy = false;
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                DisplayAlert("Error", ex.Message, "OK");
-            }
-            // stop activity indicator
-            this.IsBusy = false;
+        }
+
+        protected void Refresh_Clicked(object sender, EventArgs e)
+        {
+            UpdateList();
         }
 
         protected async void ListViewNews_ItemTapped(object sender, ItemTappedEventArgs e)

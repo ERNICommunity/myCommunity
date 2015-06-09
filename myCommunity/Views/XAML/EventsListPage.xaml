@@ -5,27 +5,36 @@
              x:Class="myCommunity.Views.XAML.EventsListPage"
              
              Title="Events">
-  <StackLayout>
-    <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Refresh" Clicked="Refresh_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <RelativeLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
 
-      <ListView x:Name="ListViewEvents"
-                ItemTapped="ListViewEvents_ItemTapped"
-                RowHeight="290"
-                HasUnevenRows="True"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageDrawer, Property=Height, Constant=-10}">
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <views:EventsViewCell/>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-      <Image x:Name="ImageDrawer" Source="calendar_drawer.png" Aspect="Fill"
-             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
-      <Label Text="CALENDAR" TextColor="#0054A6" FontAttributes="Bold" XAlign="Center"
-             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-             RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"/>
-    </RelativeLayout>
-  </StackLayout>
+            <ListView x:Name="ListViewEvents"
+                      ItemTapped="ListViewEvents_ItemTapped"
+                      RowHeight="290"
+                      HasUnevenRows="True"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageDrawer, Property=Height, Constant=-10}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <views:EventsViewCell/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Image x:Name="ImageDrawer"
+                   Source="calendar_drawer.png"
+                   Aspect="Fill"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
+            <Label Text="CALENDAR"
+                   TextColor="#0054A6"
+                   FontAttributes="Bold"
+                   XAlign="Center"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"/>
+        </RelativeLayout>
+    </StackLayout>
 
 </ContentPage>

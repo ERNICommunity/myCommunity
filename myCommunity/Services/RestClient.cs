@@ -18,7 +18,7 @@ namespace myCommunity.Services
             ///CommunityEvent[] communityEvents;
 
             var client = new System.Net.Http.HttpClient();
-            client.Timeout = TimeSpan.FromMilliseconds(1);
+            client.Timeout = TimeSpan.FromMilliseconds(30);
             client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
 
             var response = await client.GetAsync("events");
@@ -38,7 +38,7 @@ namespace myCommunity.Services
         {
 
             var client = new System.Net.Http.HttpClient();
-            client.Timeout = TimeSpan.FromMilliseconds(1);
+            client.Timeout = TimeSpan.FromMilliseconds(30);
             client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
 
             var response = await client.GetAsync("news");
