@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -20,6 +20,8 @@ namespace myCommunity.Droid
 			base.OnCreate (bundle);
 
 			Forms.Init (this, bundle);
+
+            UserDialogs.Init(()=>(Activity)Forms.Context);
 
 			LoadApplication (new App ());
 		}

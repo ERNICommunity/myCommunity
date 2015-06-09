@@ -14,7 +14,7 @@ namespace myCommunity.Views.XAML
     {
         public NewsListPage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
 
         }
 
@@ -32,28 +32,30 @@ namespace myCommunity.Views.XAML
 
         public async void UpdateList()
         {
+
+            // grab the list as an array of CommunityEvents from the webservice
+            var webservice = new RestClient();
+
+            // start the activity indicator
+            this.IsBusy = true;
             try
             {
-
-                // grab the list as an array of CommunityEvents from the webservice
-                var webservice = new RestClient();
-
-                // start the activity indicator
-                this.IsBusy = true;
 
                 // try to fetch from the webservice
                 var communityEventsArray = await webservice.GetNewsAsync();
 
-                // stop activity indicator
-                this.IsBusy = false;
+
 
                 // and assign it to the list source
                 ListViewNews.ItemsSource = communityEventsArray;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                DisplayAlert("Error", ex.Message, "OK");
             }
+            // stop activity indicator
+            this.IsBusy = false;
         }
 
         protected async void ListViewNews_ItemTapped(object sender, ItemTappedEventArgs e)

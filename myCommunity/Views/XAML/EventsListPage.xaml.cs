@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Xamarin.Forms;
 
 namespace myCommunity.Views.XAML
@@ -37,16 +38,28 @@ namespace myCommunity.Views.XAML
             var webservice = new RestClient();
 
             // start the activity indicator
-            this.IsBusy = true;
+            using (UserDialogs.Instance.Loading("Updating Events..."))
+            {
+                this.IsBusy = true;
+                try
+                {
+                    // try to fetch from the webservice
+                    var communityEventsArray = await webservice.GetEventsAsync();
 
-            // try to fetch from the webservice
-            var communityEventsArray = await webservice.GetEventsAsync();
 
-            // stop activity indicator
-            this.IsBusy = false;
 
-            // and assign it to the list source
-            ListViewEvents.ItemsSource = communityEventsArray;
+                    // stop activity indicator
+
+
+                    // and assign it to the list source
+                    ListViewEvents.ItemsSource = communityEventsArray;
+                }
+                catch (Exception ex)
+                {
+                    UserDialogs.Instance.Alert("Webservice call failed!","Error","OK");
+                }
+                this.IsBusy = false;
+            }
         }
 
         protected async void ListViewEvents_ItemTapped(object sender, ItemTappedEventArgs e)
