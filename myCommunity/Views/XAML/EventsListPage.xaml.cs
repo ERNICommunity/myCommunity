@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Xamarin.Forms;
+using Connectivity.Plugin;
 
 namespace myCommunity.Views.XAML
 {
@@ -26,10 +27,17 @@ namespace myCommunity.Views.XAML
 
             App.MainNavigation.BarTextColor = Color.FromHex("333333");
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
-            if (ListViewEvents.ItemsSource == null)
-            {
-                UpdateList();
-            }
+            
+			// if the list is empty and there is an internet connection
+			if ((ListViewEvents.ItemsSource == null)
+			    && (CrossConnectivity.Current.IsConnected)) {
+				UpdateList ();
+			}
+			else
+			{
+				UserDialogs.Instance.Alert ("Please check internet connection.", "No connection", "OK");
+			
+			}
         }
 
         public async void UpdateList()
