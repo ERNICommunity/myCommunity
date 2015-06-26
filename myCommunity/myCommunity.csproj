@@ -60,6 +60,7 @@
     <Compile Include="Views\XAML\NewsViewCell.xaml.cs">
       <DependentUpon>NewsViewCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseEvent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

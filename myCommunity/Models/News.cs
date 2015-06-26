@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace myCommunity.Models
 {
-    public class News
+	public class News : BaseEvent
     {
-        [JsonProperty("id")]
-        public string ID { get; set; }
 
-        [JsonProperty("title")]
-        public string Title { get; set; }
-
-        [JsonProperty("description")]
-        public string Description { get; set; }
+		// inherits "id", "title", "description" from BaseEvent
 
         [JsonProperty("author")]
         public string Author { get; set; }

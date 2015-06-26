@@ -71,8 +71,10 @@
     <BuildIpa>True</BuildIpa>
     <CodesignProvision>6c153828-8c78-4add-b2d5-656859ddd19b</CodesignProvision>
     <CodesignKey>iPhone Distribution: ERNI Consulting AG</CodesignKey>
-    <CodesignResourceRules />
-    <CodesignExtraArgs />
+    <CodesignResourceRules>
+    </CodesignResourceRules>
+    <CodesignExtraArgs>
+    </CodesignExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
