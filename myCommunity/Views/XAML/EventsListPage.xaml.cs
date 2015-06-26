@@ -29,8 +29,9 @@ namespace myCommunity.Views.XAML
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
             
 			// if the list is empty and there is an internet connection
+
 			if ((ListViewEvents.ItemsSource == null)
-			    && (CrossConnectivity.Current.IsConnected)) {
+				&& (CrossConnectivity.Current.IsConnected)) {
 				UpdateList ();
 			}
 			else
@@ -38,7 +39,8 @@ namespace myCommunity.Views.XAML
 				UserDialogs.Instance.Alert ("Please check internet connection.", "No connection", "OK");
 			
 			}
-        }
+
+		}
 
         public async void UpdateList()
         {
@@ -91,5 +93,7 @@ namespace myCommunity.Views.XAML
             //				bring up the details page
             await Navigation.PushAsync(detailsPage);
         }
+
+
     }
 }

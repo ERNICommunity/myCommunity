@@ -10,7 +10,7 @@ namespace myCommunity.Models
 			
 		}
 
-		// inherits "id", "title", "description" from BaseEvent
+		// inherits "id", "title", "description", "short description" from BaseEvent
 
 		[JsonProperty ("type")]
 		public string Type { get; set; }
@@ -39,10 +39,7 @@ namespace myCommunity.Models
 		[JsonProperty ("pictureurl")]
 		public string PictureUrl { get; set; }
 
-		public override string ToString ()
-		{
-			return String.Format ("{0}: {1}, {2}, {3}", ID, Title, Organiser, EventDate);
-		}
+
 	}
 
 

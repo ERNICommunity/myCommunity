@@ -10,7 +10,7 @@ namespace myCommunity.Models
 	public class News : BaseEvent
     {
 
-		// inherits "id", "title", "description" from BaseEvent
+		// inherits "id", "title", "description", "short description" from BaseEvent
 
         [JsonProperty("author")]
         public string Author { get; set; }
@@ -28,16 +28,6 @@ namespace myCommunity.Models
             }
         }
 
-        public string ShortDescription
-        {
-            get {
-                if (string.IsNullOrEmpty(Description)) return "";
 
-                if (Description.Length < 53) return Description;
-
-                return Description.Substring(0, 50) + "...";
-
-            }
-        }
     }
 }

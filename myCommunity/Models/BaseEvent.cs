@@ -17,6 +17,23 @@ namespace myCommunity
 
 		[JsonProperty("description")]
 		public string Description { get; set; }
+
+		public override string ToString ()
+		{
+			return String.Format ("{0}: {1}, {2}", ID, Title, Description);
+		}
+
+		public string ShortDescription
+		{
+			get {
+				if (string.IsNullOrEmpty(Description)) return "";
+
+				if (Description.Length < 53) return Description;
+
+				return Description.Substring(0, 50) + "...";
+
+			}
+		}
 	}
 }
 
