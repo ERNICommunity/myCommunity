@@ -3,27 +3,20 @@ using Newtonsoft.Json;
 
 namespace myCommunity.Models
 {
-	public class CommunityEvent
+	public class CommunityEvent : BaseEvent
 	{
 		public CommunityEvent ()
 		{
 			
 		}
 
-		[JsonProperty ("id")]
-		public string ID { get; set; }
-
-		[JsonProperty ("title")]
-		public string Title { get; set; }
+		// inherits "id", "title", "description", "short description" from BaseEvent
 
 		[JsonProperty ("type")]
 		public string Type { get; set; }
 
 		[JsonProperty ("location")]
 		public string Location { get; set; }
-
-		[JsonProperty ("description")]
-		public string Description { get; set; }
 
 		[JsonProperty ("organiser")]
 		public string Organiser { get; set; }
@@ -46,10 +39,7 @@ namespace myCommunity.Models
 		[JsonProperty ("pictureurl")]
 		public string PictureUrl { get; set; }
 
-		public override string ToString ()
-		{
-			return String.Format ("{0}: {1}, {2}, {3}", ID, Title, Organiser, EventDate);
-		}
+
 	}
 
 

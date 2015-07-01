@@ -17,23 +17,26 @@
                       RowHeight="290"
                       HasUnevenRows="True"
                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
-                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=ImageDrawer, Property=Height, Constant=-10}">
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Height, Constant=-10}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <views:EventsViewCell/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Image x:Name="ImageDrawer"
+
+<!-- Commented out the Calendar draw for now until we can implement the full functionality -->
+
+<!--            <Image x:Name="ImageDrawer"
                    Source="calendar_drawer.png"
                    Aspect="Fill"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
-            <Label Text="CALENDAR"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>-->
+<!--            <Label Text="CALENDAR"
                    TextColor="#0054A6"
                    FontAttributes="Bold"
                    XAlign="Center"
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                   RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"/>
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"/>-->
         </RelativeLayout>
     </StackLayout>
 
