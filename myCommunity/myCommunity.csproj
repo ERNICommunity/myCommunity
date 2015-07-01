@@ -39,6 +39,7 @@
     <Compile Include="Services\RestClient.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\SignUpResponse.cs" />
     <Compile Include="Views\XAML\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
     </Compile>

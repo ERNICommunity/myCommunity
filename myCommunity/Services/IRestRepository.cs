@@ -11,5 +11,6 @@ namespace myCommunity.Services
     {
         Task<CommunityEvent[]> GetEventsAsync();
         Task<News[]> GetNewsAsync();
+        Task<SignUpResponse> EventSignUpAsync(string eventId, string username);
     }
 }

@@ -202,37 +202,40 @@ namespace myCommunity.Droid
 			public const int ic_news = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int ic_successstatus = 2130837513;
+			public const int ic_participants = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int ic_time = 2130837514;
+			public const int ic_successstatus = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int ic_type = 2130837515;
+			public const int ic_time = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int icon = 2130837516;
+			public const int ic_type = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int mycommunity_app_icon = 2130837517;
+			public const int icon = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int nopizza = 2130837518;
+			public const int mycommunity_app_icon = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int pizza = 2130837519;
+			public const int nopizza = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int roundedbg = 2130837520;
+			public const int pizza = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int roundedbgdark = 2130837521;
+			public const int roundedbg = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int splash_drawable = 2130837522;
+			public const int roundedbgdark = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int splashlogo = 2130837523;
+			public const int splash_drawable = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int splashlogo = 2130837524;
 			
 			static Drawable()
 			{

@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace myCommunity.Models
 {
@@ -39,6 +40,8 @@ namespace myCommunity.Models
 		[JsonProperty ("pictureurl")]
 		public string PictureUrl { get; set; }
 
+        [JsonProperty("participants")]
+        public List<string> Participants;
 
 	}
 
