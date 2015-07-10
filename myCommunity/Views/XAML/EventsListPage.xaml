@@ -5,12 +5,24 @@
              x:Class="myCommunity.Views.XAML.EventsListPage"             
              Title="Events">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="ic_action_refresh.png" Clicked="Refresh_Clicked"></ToolbarItem>
+        <ToolbarItem Icon="ic_action_refresh.png"
+                     Clicked="Refresh_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    <StackLayout>
-        <RelativeLayout VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand">
-
+    <StackLayout Spacing="0">
+        <!--<RelativeLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">-->
+        <StackLayout x:Name="stkUser"
+                     Padding="5"
+                     BackgroundColor="#0054A6"
+                     VerticalOptions="Start"
+                     HorizontalOptions="FillAndExpand">
+            <Label x:Name="lblUser"
+                   FontSize="Micro"
+                   FontAttributes="Bold"
+                   HorizontalOptions="End"
+                   TextColor="White" />
+        </StackLayout>
+        
             <ListView x:Name="ListViewEvents"
             		  IsGroupingEnabled="true"
             		  GroupDisplayBinding="{Binding Title}"
@@ -26,19 +38,18 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-<!-- Commented out the Calendar draw for now until we can implement the full functionality -->
-
-<!--            <Image x:Name="ImageDrawer"
+        <!--            <Image x:Name="ImageDrawer"
                    Source="calendar_drawer.png"
                    Aspect="Fill"
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>-->
-<!--            <Label Text="CALENDAR"
+        <!--            <Label Text="CALENDAR"
                    TextColor="#0054A6"
                    FontAttributes="Bold"
                    XAlign="Center"
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"/>-->
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
+
     </StackLayout>
 
 </ContentPage>

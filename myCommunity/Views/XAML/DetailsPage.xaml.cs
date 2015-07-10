@@ -16,7 +16,6 @@ namespace myCommunity.Views.XAML
         {
             InitializeComponent();
             //this.SetBinding(ContentPage.TitleProperty, "Title"); // display the "Title" field as the title of the page
-
         }
 
         protected override void OnAppearing()
@@ -73,11 +72,25 @@ namespace myCommunity.Views.XAML
 
             if (communityEvent != null)
             {
-                var webservice = new RestClient();
-                var retval = await webservice.EventSignUpAsync(communityEvent.ID, username);
-                if(retval.Code == "Created")
+                using (UserDialogs.Instance.Loading("Signing Up..."))
                 {
-                    UserDialogs.Instance.Alert("Succesfully signed up in the event", "Signed Up", "OK");
+                    var webservice = new RestClient();
+                    var retval = await webservice.EventSignUpAsync(communityEvent.ID, username);
+                    if (retval.Code == "Created")
+                    {
+                        UserDialogs.Instance.Alert("Succesfully signed up in the event", "Signed Up", "OK");
+
+                        if (!communityEvent.Participants.Contains(username))
+                        {
+                            communityEvent.Participants.Add(username);
+                            lvParticipants.RemoveBinding(ListView.ItemsSourceProperty);
+                            lvParticipants.SetBinding(ListView.ItemsSourceProperty, "Attendees");
+                            
+                        }
+
+                        MessagingCenter.Send<DetailsPage>(this, "RefreshFromSignup");
+
+                    }
                 }
             }
         }

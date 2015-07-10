@@ -18,35 +18,39 @@ namespace myCommunity.Views.XAML
 		public EventsListPage()
 		{
 			InitializeComponent();
+            MessagingCenter.Subscribe<DetailsPage>(this, "RefreshFromSignup", this.RefreshFromSignup);
 
+        }
 
-		}
+        private void RefreshFromSignup(DetailsPage obj)
+        {
 
-		public ObservableCollection<CommunityEventCollection> GroupedItems = new ObservableCollection<CommunityEventCollection>();
+            UpdateList();
+            this.CheckForUser();
+        }
 
+        protected override void OnDisappearing()
+        {
+            this.ListViewEvents.IsVisible = false;
+            base.OnDisappearing();
+        }
 
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-			App.MainNavigation.BarTextColor = Color.FromHex("333333");
-			App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
+            this.CheckForUser();
+            this.ListViewEvents.IsVisible = true;
 
-			// if the list is empty and there is an internet connection
+            App.MainNavigation.BarTextColor = Color.FromHex("333333");
+            App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
 
-			if ((ListViewEvents.ItemsSource == null)
-				&& (CrossConnectivity.Current.IsConnected)) {
-				UpdateList ();
-			}
-			else
-			{
-				UserDialogs.Instance.Alert ("Please check internet connection.", "No connection", "OK");
+            // if the list is empty 
 
-			}
+            if (ListViewEvents.ItemsSource == null)
+                UpdateList();
 
-		}
-
-		private void CreateEventGroupIfNecessary(ref List<CommunityEventCollection> collection, string title)
+		}		private void CreateEventGroupIfNecessary(ref List<CommunityEventCollection> collection, string title)
 		{
 			if (collection.All (p_This => p_This.LongTitle != title)) {
 				collection.Add(new CommunityEventCollection(title));	
@@ -57,6 +61,30 @@ namespace myCommunity.Views.XAML
 		{
 			return new DateTime(DateTime.Parse (p_EventDate).Year, DateTime.Parse (p_EventDate).Month, 1);
 		}
+		private void CheckForUser()
+        {
+            string username = string.Empty;
+
+            if (Application.Current.Properties.ContainsKey("username"))
+                username = Application.Current.Properties["username"] as string;
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                stkUser.IsVisible = true;
+                lblUser.Text = string.Format("{0}", username);
+            }
+            else stkUser.IsVisible = false;
+        }
+        public async void UpdateList()
+        {
+
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                UserDialogs.Instance.Alert("Please check internet connection.", "No connection", "OK");
+                return;
+            }
+            // grab the list as an array of CommunityEvents from the webservice
+            var webservice = new RestClient();
 
 		public async void UpdateList()
 		{

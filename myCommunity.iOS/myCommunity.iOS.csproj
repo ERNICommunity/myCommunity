@@ -66,7 +66,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
     <CodesignProvision>6c153828-8c78-4add-b2d5-656859ddd19b</CodesignProvision>
@@ -75,6 +75,17 @@
     </CodesignResourceRules>
     <CodesignExtraArgs>
     </CodesignExtraArgs>
+    <MtouchSdkVersion>8.3</MtouchSdkVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>False</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
+    <MtouchI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -87,6 +98,13 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhoneSimulator'">
+    <CodesignKey>iPhone Distribution: ERNI Consulting AG</CodesignKey>
+    <CodesignProvision>6c153828-8c78-4add-b2d5-656859ddd19b</CodesignProvision>
+    <CodesignEntitlements />
+    <CodesignResourceRules />
+    <CodesignExtraArgs />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -103,6 +121,14 @@
     </Reference>
     <Reference Include="BTProgressHUD">
       <HintPath>..\packages\Acr.UserDialogs.3.3.4\lib\Xamarin.iOS10\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.2\lib\Xamarin.iOS10\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.2\lib\Xamarin.iOS10\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -157,6 +183,18 @@
     <BundleResource Include="Resources\ic_news.png" />
     <BundleResource Include="Resources\ic_news%402x.png" />
     <BundleResource Include="Resources\ic_action_refresh.png" />
+    <Content Include="PluginsHelp\ConnectivityReadme.txt" />
+    <BundleResource Include="Resources\ic_action_refresh%402x.png" />
+    <BundleResource Include="Resources\ic_action_refresh%403x.png" />
+    <BundleResource Include="Resources\ic_description%403x.png" />
+    <BundleResource Include="Resources\ic_event_date%403x.png" />
+    <BundleResource Include="Resources\ic_location%403x.png" />
+    <BundleResource Include="Resources\ic_news%403x.png" />
+    <BundleResource Include="Resources\ic_participants.png" />
+    <BundleResource Include="Resources\ic_participants%402x.png" />
+    <BundleResource Include="Resources\ic_participants%403x.png" />
+    <BundleResource Include="Resources\ic_time%403x.png" />
+    <BundleResource Include="Resources\ic_type%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\myCommunity\myCommunity.csproj">

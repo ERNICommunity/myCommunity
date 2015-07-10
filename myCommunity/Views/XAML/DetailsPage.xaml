@@ -15,8 +15,12 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="SIGNUP"
+                     Activated="SignUp_Clicked"/>
+    </ContentPage.ToolbarItems>
     <StackLayout Spacing="10" BackgroundColor="White">
-        <ScrollView HorizontalOptions="FillAndExpand" IsClippedToBounds="True" Padding="0,0,0,10">
+        <ScrollView HorizontalOptions="FillAndExpand" IsClippedToBounds="True" >
             <StackLayout Spacing="15">
 
                 <Image Source="{Binding PictureUrl}"
@@ -71,7 +75,7 @@
                                TextColor="#9D9FA2"/>
                     </StackLayout>
                 </StackLayout>
-                <StackLayout Padding="15,0,0,0"
+                <StackLayout Padding="15,0,15,0"
                              Orientation="Horizontal">
                     <Image Source="ic_description.png"
                            VerticalOptions="Start"/>
@@ -84,25 +88,29 @@
                                TextColor="#9D9FA2"/>
                     </StackLayout>
                 </StackLayout>
-                <StackLayout Padding="15,0,0,0"
+                <StackLayout Padding="15,0,15,0"
                              Orientation="Horizontal">
-                    <Image Source="ic_description.png"
+                    <Image Source="ic_participants.png"
                            VerticalOptions="Start"/>
 
                     <StackLayout>
-                        <Label Text="DESCRIPTION"
+                        <Label Text="PARTICIPANTS"
                                FontAttributes="Bold"
                                TextColor="#9D9FA2"/>
-                        <Label Text="{Binding Description}"
-                               TextColor="#9D9FA2"/>
+                        <ListView x:Name="lvParticipants" ItemsSource="{Binding Attendees}" HasUnevenRows="True" HeightRequest="150" SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Label Text="{Binding Name}"
+                                               TextColor="#9D9FA2"/>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-
-        <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="10" >
-            <Button Text="Sign Up" Clicked="SignUp_Clicked" BackgroundColor="#0054A6" TextColor="White"></Button>
-        </StackLayout>
         
     </StackLayout>
 

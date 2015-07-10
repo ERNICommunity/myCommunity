@@ -17,7 +17,7 @@ namespace myCommunity.Services
 
             var client = new System.Net.Http.HttpClient();
             client.Timeout = TimeSpan.FromSeconds(30);
-            client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
+            client.BaseAddress = new Uri("http://mycommunity.nova.scapp.io");
 
             var response = await client.GetAsync("events");
 
@@ -39,7 +39,7 @@ namespace myCommunity.Services
 
             var client = new System.Net.Http.HttpClient();
             client.Timeout = TimeSpan.FromSeconds(30);
-            client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
+            client.BaseAddress = new Uri("http://mycommunity.nova.scapp.io");
 
             var response = await client.GetAsync("news");
 
@@ -57,7 +57,7 @@ namespace myCommunity.Services
         {
             var client = new System.Net.Http.HttpClient();
             client.Timeout = TimeSpan.FromSeconds(30);
-            client.BaseAddress = new Uri("http://mycommunity.nova.swisscloud.io");
+            client.BaseAddress = new Uri("http://mycommunity.nova.scapp.io");
             var response = await client.GetAsync(string.Format("register/{0}/{1}",eventId,username));
 
 

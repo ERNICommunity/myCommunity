@@ -118,6 +118,11 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_participants.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_participants.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_participants.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_participants.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_participants.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_location.png" />
