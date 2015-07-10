@@ -50,7 +50,9 @@ namespace myCommunity.Views.XAML
             if (ListViewEvents.ItemsSource == null)
                 UpdateList();
 
-		}		private void CreateEventGroupIfNecessary(ref List<CommunityEventCollection> collection, string title)
+		}		
+
+		private void CreateEventGroupIfNecessary(ref List<CommunityEventCollection> collection, string title)
 		{
 			if (collection.All (p_This => p_This.LongTitle != title)) {
 				collection.Add(new CommunityEventCollection(title));	
@@ -86,10 +88,6 @@ namespace myCommunity.Views.XAML
             // grab the list as an array of CommunityEvents from the webservice
             var webservice = new RestClient();
 
-		public async void UpdateList()
-		{
-			// grab the list as an array of CommunityEvents from the webservice
-			var webservice = new RestClient();
 
 			// start the activity indicator
 			using (UserDialogs.Instance.Loading("Updating Events..."))

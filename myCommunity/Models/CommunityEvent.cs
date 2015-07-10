@@ -11,9 +11,7 @@ namespace myCommunity.Models
 			
 		}
 
-        }
-
-        // inherits "id", "title", "description", "short description" from BaseEvent
+                // inherits "id", "title", "description", "short description" from BaseEvent
         [JsonProperty("type")]
         public string Type { get; set; }
 
@@ -56,15 +54,13 @@ namespace myCommunity.Models
 				return attendees;
             }
         }
-    }	
+    	
 
-	int IComparable<CommunityEvent>.CompareTo(CommunityEvent value)
-	{
-		return DateTime.Parse(EventDate).Date.CompareTo(DateTime.Parse(value.EventDate).Date);
+		int IComparable<CommunityEvent>.CompareTo(CommunityEvent value)
+		{
+			return DateTime.Parse(EventDate).Date.CompareTo(DateTime.Parse(value.EventDate).Date);
+		}
 	}
-}
-
-
 
 }
 
