@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace myCommunity.Models
 {
-	public class CommunityEvent : BaseEvent
+	public class CommunityEvent : BaseEvent, IComparable<CommunityEvent>
 	{
 		public CommunityEvent ()
 		{
@@ -42,6 +42,11 @@ namespace myCommunity.Models
 
         [JsonProperty("participants")]
         public List<string> Participants;
+
+		int IComparable<CommunityEvent>.CompareTo(CommunityEvent value)
+		{
+			return DateTime.Parse(EventDate).Date.CompareTo(DateTime.Parse(value.EventDate).Date);
+		}
 
 	}
 

@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:myCommunity.Views.XAML;assembly=myCommunity"
-             x:Class="myCommunity.Views.XAML.EventsListPage"
-             
+             x:Class="myCommunity.Views.XAML.EventsListPage"             
              Title="Events">
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="ic_action_refresh.png" Clicked="Refresh_Clicked"></ToolbarItem>
@@ -13,14 +12,16 @@
                         HorizontalOptions="FillAndExpand">
 
             <ListView x:Name="ListViewEvents"
+            		  IsGroupingEnabled="true"
+            		  GroupDisplayBinding="{Binding Title}"
+  		  			  GroupShortNameBinding="{Binding Title}"
                       ItemTapped="ListViewEvents_ItemTapped"
-                      RowHeight="290"
                       HasUnevenRows="True"
                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Height, Constant=-10}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <views:EventsViewCell/>
+	                    <views:EventsViewCell/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

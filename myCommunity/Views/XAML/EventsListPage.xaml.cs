@@ -9,25 +9,29 @@ using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Xamarin.Forms;
 using Connectivity.Plugin;
+using System.Collections.ObjectModel;
 
 namespace myCommunity.Views.XAML
 {
-    public partial class EventsListPage : ContentPage
-    {
-        public EventsListPage()
-        {
-            InitializeComponent();
+	public partial class EventsListPage : ContentPage
+	{
+		public EventsListPage()
+		{
+			InitializeComponent();
 
 
-        }
+		}
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+		public ObservableCollection<CommunityEventCollection> GroupedItems = new ObservableCollection<CommunityEventCollection>();
 
-            App.MainNavigation.BarTextColor = Color.FromHex("333333");
-            App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
-            
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			App.MainNavigation.BarTextColor = Color.FromHex("333333");
+			App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
+
 			// if the list is empty and there is an internet connection
 
 			if ((ListViewEvents.ItemsSource == null)
@@ -37,63 +41,89 @@ namespace myCommunity.Views.XAML
 			else
 			{
 				UserDialogs.Instance.Alert ("Please check internet connection.", "No connection", "OK");
-			
+
 			}
 
 		}
 
-        public async void UpdateList()
-        {
-            // grab the list as an array of CommunityEvents from the webservice
-            var webservice = new RestClient();
+		private void CreateEventGroupIfNecessary(ref List<CommunityEventCollection> collection, string title)
+		{
+			if (collection.All (p_This => p_This.LongTitle != title)) {
+				collection.Add(new CommunityEventCollection(title));	
+			}
+		}
+			
+		private DateTime GetFirstDayOfMonthDate(string p_EventDate)
+		{
+			return new DateTime(DateTime.Parse (p_EventDate).Year, DateTime.Parse (p_EventDate).Month, 1);
+		}
 
-            // start the activity indicator
-            using (UserDialogs.Instance.Loading("Updating Events..."))
-            {
-                this.IsBusy = true;
-                try
-                {
-                    // try to fetch from the webservice
-                    var communityEventsArray = await webservice.GetEventsAsync();
+		public async void UpdateList()
+		{
+			// grab the list as an array of CommunityEvents from the webservice
+			var webservice = new RestClient();
+
+			// start the activity indicator
+			using (UserDialogs.Instance.Loading("Updating Events..."))
+			{
+				this.IsBusy = true;
+				try
+				{
+					// try to fetch from the webservice
+					var communityEventsArray =  await webservice.GetEventsAsync();
+
+					var allListItemGroups = new ObservableCollection<CommunityEventCollection>();
+
+					if(!communityEventsArray.Any())
+					{
+						allListItemGroups.Add(new CommunityEventCollection("Error - No Elements found"));
+					}
+					else
+					{
+						foreach(var date in communityEventsArray.Select(x => GetFirstDayOfMonthDate(x.EventDate)).Distinct().ToList())
+						{
+							var listItemGroup = new CommunityEventCollection(string.Format("{0} {1}", date.ToString("MMMM"), date.Year));
+							foreach(var item in communityEventsArray.Where(x => GetFirstDayOfMonthDate(x.EventDate).CompareTo(date) == 0))
+							{
+								listItemGroup.Add(item);
+							}
+							allListItemGroups.Add(listItemGroup);
+						}
+					}
+					ListViewEvents.GroupDisplayBinding = new Binding("LongTitle");
+					ListViewEvents.GroupShortNameBinding = new Binding("Title");
+					ListViewEvents.ItemsSource = allListItemGroups;
+				}
+				catch (Exception ex)
+				{
+					UserDialogs.Instance.Alert("Please check internet connection.", "Loading Failed", "OK");
+				}
+				this.IsBusy = false;
+			}
+		}
+
+		protected void Refresh_Clicked(object sender, EventArgs e)
+		{
+			UpdateList();
+		}
+
+		protected async void ListViewEvents_ItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			// get the current CommunityEvent selected by the user and assign it to a temp variable
+			var communityEvent = (CommunityEvent)e.Item;
+
+			//				create the DetailsPage
+			var detailsPage = new DetailsPage();
+
+			//				bind the CommunityEvent source to the DetailsPage target
+			detailsPage.BindingContext = communityEvent;
+
+			((ListView)sender).SelectedItem = null;
+
+			//				bring up the details page
+			await Navigation.PushAsync(detailsPage);
+		}
 
 
-
-                    // stop activity indicator
-
-
-                    // and assign it to the list source
-                    ListViewEvents.ItemsSource = communityEventsArray;
-                }
-                catch (Exception ex)
-                {
-                    UserDialogs.Instance.Alert("Please check internet connection.", "Loading Failed", "OK");
-                }
-                this.IsBusy = false;
-            }
-        }
-
-        protected void Refresh_Clicked(object sender, EventArgs e)
-        {
-            UpdateList();
-        }
-
-        protected async void ListViewEvents_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            // get the current CommunityEvent selected by the user and assign it to a temp variable
-            var communityEvent = (CommunityEvent)e.Item;
-
-            //				create the DetailsPage
-            var detailsPage = new DetailsPage();
-
-            //				bind the CommunityEvent source to the DetailsPage target
-            detailsPage.BindingContext = communityEvent;
-
-            ((ListView)sender).SelectedItem = null;
-
-            //				bring up the details page
-            await Navigation.PushAsync(detailsPage);
-        }
-
-
-    }
+	}
 }
