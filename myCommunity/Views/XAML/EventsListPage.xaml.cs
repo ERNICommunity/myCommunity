@@ -17,33 +17,64 @@ namespace myCommunity.Views.XAML
         public EventsListPage()
         {
             InitializeComponent();
+            MessagingCenter.Subscribe<DetailsPage>(this, "RefreshFromSignup", this.RefreshFromSignup);
 
+        }
 
+        private void RefreshFromSignup(DetailsPage obj)
+        {
+
+            UpdateList();
+            this.CheckForUser();
+        }
+
+        protected override void OnDisappearing()
+        {
+            this.ListViewEvents.IsVisible = false;
+            base.OnDisappearing();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+            this.CheckForUser();
+            this.ListViewEvents.IsVisible = true;
+
             App.MainNavigation.BarTextColor = Color.FromHex("333333");
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
-            
-			// if the list is empty and there is an internet connection
 
-			if ((ListViewEvents.ItemsSource == null)
-				&& (CrossConnectivity.Current.IsConnected)) {
-				UpdateList ();
-			}
-			else
-			{
-				UserDialogs.Instance.Alert ("Please check internet connection.", "No connection", "OK");
-			
-			}
+            // if the list is empty 
 
-		}
+            if (ListViewEvents.ItemsSource == null)
+                UpdateList();
+
+
+        }
+
+        private void CheckForUser()
+        {
+            string username = string.Empty;
+
+            if (Application.Current.Properties.ContainsKey("username"))
+                username = Application.Current.Properties["username"] as string;
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                stkUser.IsVisible = true;
+                lblUser.Text = string.Format("{0}", username);
+            }
+            else stkUser.IsVisible = false;
+        }
 
         public async void UpdateList()
         {
+
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                UserDialogs.Instance.Alert("Please check internet connection.", "No connection", "OK");
+                return;
+            }
             // grab the list as an array of CommunityEvents from the webservice
             var webservice = new RestClient();
 
