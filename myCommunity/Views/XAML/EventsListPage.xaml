@@ -25,7 +25,6 @@
         
             <ListView x:Name="ListViewEvents"
             		  IsGroupingEnabled="true"
-            		  GroupDisplayBinding="{Binding Title}"
   		  			  GroupShortNameBinding="{Binding Title}"
                       ItemTapped="ListViewEvents_ItemTapped"
                       HasUnevenRows="True"

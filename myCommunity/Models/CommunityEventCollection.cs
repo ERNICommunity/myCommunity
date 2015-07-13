@@ -10,10 +10,10 @@ namespace myCommunity
 		public string Title { get; private set;}
 		public string LongTitle { get; private set; }
 
-		public CommunityEventCollection (string title)
+		public CommunityEventCollection (DateTime date)
 		{
-			Title = title;
-			LongTitle = title;
+			Title = string.Format("{0} {1}", date.ToString("MM"), date.Year);
+			LongTitle = string.Format("{0} {1}", date.ToString("MMMM"), date.Year);
 			Items = new List<CommunityEvent> ();
 		}
 

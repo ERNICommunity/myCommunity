@@ -51,13 +51,6 @@ namespace myCommunity.Views.XAML
                 UpdateList();
 
 		}		
-
-		private void CreateEventGroupIfNecessary(ref List<CommunityEventCollection> collection, string title)
-		{
-			if (collection.All (p_This => p_This.LongTitle != title)) {
-				collection.Add(new CommunityEventCollection(title));	
-			}
-		}
 			
 		private DateTime GetFirstDayOfMonthDate(string p_EventDate)
 		{
@@ -102,13 +95,13 @@ namespace myCommunity.Views.XAML
 
 					if(!communityEventsArray.Any())
 					{
-						allListItemGroups.Add(new CommunityEventCollection("Error - No Elements found"));
+						UserDialogs.Instance.Alert("No Elements found", "Error", "Error");
 					}
 					else
 					{
 						foreach(var date in communityEventsArray.Select(x => GetFirstDayOfMonthDate(x.EventDate)).Distinct().ToList())
 						{
-							var listItemGroup = new CommunityEventCollection(string.Format("{0} {1}", date.ToString("MMMM"), date.Year));
+							var listItemGroup = new CommunityEventCollection(date);
 							foreach(var item in communityEventsArray.Where(x => GetFirstDayOfMonthDate(x.EventDate).CompareTo(date) == 0))
 							{
 								listItemGroup.Add(item);
@@ -116,7 +109,7 @@ namespace myCommunity.Views.XAML
 							allListItemGroups.Add(listItemGroup);
 						}
 					}
-					ListViewEvents.GroupDisplayBinding = new Binding("LongTitle");
+					ListViewEvents.GroupHeaderTemplate = new DataTemplate(typeof(HeaderCell));
 					ListViewEvents.GroupShortNameBinding = new Binding("Title");
 					ListViewEvents.ItemsSource = allListItemGroups;
 				}
@@ -153,3 +146,29 @@ namespace myCommunity.Views.XAML
 
 	}
 }
+
+
+public class HeaderCell : ViewCell 
+{ 
+	public HeaderCell() 
+	{ 
+		this.Height = 50; 
+		var label = new Label 
+		{ 
+			Font = Font.SystemFontOfSize(NamedSize.Medium, FontAttributes.Bold), 
+			TextColor = Color.White, 
+			VerticalOptions = LayoutOptions.Center 
+		};   
+		label.SetBinding(Label.TextProperty, new Binding("LongTitle"));   
+
+		View = new StackLayout 
+		{ 
+			HorizontalOptions = LayoutOptions.FillAndExpand, 
+			HeightRequest = 50, 
+			BackgroundColor = Color.Navy, 
+			Padding = 5, 
+			Orientation = StackOrientation.Horizontal, 
+			Children = { label } 
+		}; 
+	} 
+} 
