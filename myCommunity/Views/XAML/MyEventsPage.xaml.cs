@@ -13,14 +13,16 @@ using System.Collections.ObjectModel;
 
 namespace myCommunity.Views.XAML
 {
-	public partial class EventsListPage : ContentPage
+	public partial class MyEventsPage : ContentPage
 	{
-		public EventsListPage()
+		public MyEventsPage()
 		{
 			InitializeComponent();
             MessagingCenter.Subscribe<DetailsPage>(this, "RefreshFromSignup", this.RefreshFromSignup);
 
         }
+
+		protected string username = string.Empty;
 
         private void RefreshFromSignup(DetailsPage obj)
         {
@@ -31,7 +33,7 @@ namespace myCommunity.Views.XAML
 
         protected override void OnDisappearing()
         {
-            this.ListViewEvents.IsVisible = false;
+            this.MyListViewEvents.IsVisible = false;
             base.OnDisappearing();
         }
 
@@ -40,14 +42,14 @@ namespace myCommunity.Views.XAML
             base.OnAppearing();
 
             this.CheckForUser();
-            this.ListViewEvents.IsVisible = true;
+            this.MyListViewEvents.IsVisible = true;
 
             App.MainNavigation.BarTextColor = Color.FromHex("333333");
             App.MainNavigation.BarBackgroundColor = Color.FromHex("F0F0F0");
 
             // if the list is empty 
 
-            if (ListViewEvents.ItemsSource == null)
+            if (MyListViewEvents.ItemsSource == null)
                 UpdateList();
 
 		}		
@@ -58,8 +60,6 @@ namespace myCommunity.Views.XAML
 		}
 		private void CheckForUser()
         {
-            string username = string.Empty;
-
 			if (Application.Current.Properties.ContainsKey(AppStrings.USERNAME))
 				username = Application.Current.Properties[AppStrings.USERNAME] as string;
 
@@ -95,11 +95,11 @@ namespace myCommunity.Views.XAML
 
 					if(!communityEventsArray.Any())
 					{
-						UserDialogs.Instance.Alert("No Elements found", "Error", "Error");
+						UserDialogs.Instance.Alert("You didn't sign up for any events, yet", "Error", "Error");
 					}
 					else
 					{
-						foreach(var date in communityEventsArray.Select(x => GetFirstDayOfMonthDate(x.EventDate)).Distinct().ToList())
+						foreach(var date in communityEventsArray.Where(cEvent => cEvent.Attendees.Any(attendee => attendee.Name == username)).Select(x => GetFirstDayOfMonthDate(x.EventDate)).Distinct().ToList())
 						{
 							var listItemGroup = new CommunityEventCollection(date);
 							foreach(var item in communityEventsArray.Where(x => GetFirstDayOfMonthDate(x.EventDate).CompareTo(date) == 0))
@@ -109,9 +109,9 @@ namespace myCommunity.Views.XAML
 							allListItemGroups.Add(listItemGroup);
 						}
 					}
-					ListViewEvents.GroupHeaderTemplate = new DataTemplate(typeof(HeaderCell));
-					ListViewEvents.GroupShortNameBinding = new Binding("Title");
-					ListViewEvents.ItemsSource = allListItemGroups;
+					MyListViewEvents.GroupHeaderTemplate = new DataTemplate(typeof(HeaderCell));
+					MyListViewEvents.GroupShortNameBinding = new Binding("Title");
+					MyListViewEvents.ItemsSource = allListItemGroups;
 				}
 				catch (Exception ex)
 				{
@@ -126,7 +126,7 @@ namespace myCommunity.Views.XAML
 			UpdateList();
 		}
 
-		protected async void ListViewEvents_ItemTapped(object sender, ItemTappedEventArgs e)
+		protected async void MyListViewEvents_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			// get the current CommunityEvent selected by the user and assign it to a temp variable
 			var communityEvent = (CommunityEvent)e.Item;

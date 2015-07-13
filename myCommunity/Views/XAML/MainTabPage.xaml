@@ -7,5 +7,6 @@
   <TabbedPage.Children>
     <views:EventsListPage Icon="ic_event_date.png"/>
     <views:NewsListPage Icon="ic_news.png"/>
+    <views:MyEventsPage Icon="ic_my_events.png"/>
   </TabbedPage.Children>
 </TabbedPage>
