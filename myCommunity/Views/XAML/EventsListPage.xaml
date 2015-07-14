@@ -5,6 +5,8 @@
              x:Class="myCommunity.Views.XAML.EventsListPage"             
              Title="Events">
     <ContentPage.ToolbarItems>
+    	<ToolbarItem Icon="ic_description.png"
+                     Clicked="Filter_Clicked"></ToolbarItem>
         <ToolbarItem Icon="ic_action_refresh.png"
                      Clicked="Refresh_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>

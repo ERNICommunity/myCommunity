@@ -15,10 +15,24 @@ namespace myCommunity.Views.XAML
 {
 	public partial class EventsListPage : ContentPage
 	{
+		private string Username = string.Empty;
+		private FilterModel m_Filter;
+
 		public EventsListPage()
 		{
 			InitializeComponent();
             MessagingCenter.Subscribe<DetailsPage>(this, "RefreshFromSignup", this.RefreshFromSignup);
+			MessagingCenter.Subscribe<FilterEventsPage, FilterModel> (this, "Filter", (childPage, filter) => {
+				var currentFilter = m_Filter;
+				m_Filter = filter;
+				if(m_Filter != null && m_Filter.IsEquals(currentFilter))
+				{
+					Navigation.PopModalAsync();
+					return;
+				}
+				UpdateList();
+				Navigation.PopModalAsync();
+			});
 
         }
 
@@ -58,19 +72,19 @@ namespace myCommunity.Views.XAML
 		}
 		private void CheckForUser()
         {
-            string username = string.Empty;
+			this.Username = string.Empty;
 
 			if (Application.Current.Properties.ContainsKey(AppStrings.USERNAME))
-				username = Application.Current.Properties[AppStrings.USERNAME] as string;
+				Username = Application.Current.Properties[AppStrings.USERNAME] as string;
 
-            if (!string.IsNullOrEmpty(username))
+			if (!string.IsNullOrEmpty(Username))
             {
                 stkUser.IsVisible = true;
-                lblUser.Text = string.Format("{0}", username);
+				lblUser.Text = string.Format("{0}", Username);
             }
             else stkUser.IsVisible = false;
         }
-        public async void UpdateList()
+		public async void UpdateList()
         {
 
             if (!CrossConnectivity.Current.IsConnected)
@@ -99,10 +113,12 @@ namespace myCommunity.Views.XAML
 					}
 					else
 					{
-						foreach(var date in communityEventsArray.Select(x => GetFirstDayOfMonthDate(x.EventDate)).Distinct().ToList())
+						var filteredEvents = this.ApplyFilter(communityEventsArray);
+
+						foreach(var date in filteredEvents.Select(x => GetFirstDayOfMonthDate(x.EventDate)).Distinct().ToList())
 						{
 							var listItemGroup = new CommunityEventCollection(date);
-							foreach(var item in communityEventsArray.Where(x => GetFirstDayOfMonthDate(x.EventDate).CompareTo(date) == 0))
+							foreach(var item in filteredEvents.Where(x => GetFirstDayOfMonthDate(x.EventDate).CompareTo(date) == 0))
 							{
 								listItemGroup.Add(item);
 							}
@@ -119,6 +135,26 @@ namespace myCommunity.Views.XAML
 				}
 				this.IsBusy = false;
 			}
+		}
+
+		private IEnumerable<CommunityEvent> ApplyFilter(IEnumerable<CommunityEvent> p_Events)
+		{
+			if (m_Filter == null) 
+			{
+				return  p_Events;
+			}
+			if (m_Filter.ShowMyEventsOnly) 
+			{
+				p_Events = p_Events.Where (p_This => p_This.Attendees.Any (attendee => attendee.Name == Username));
+			}
+			//other filters to be placed here
+			return p_Events;
+		}
+
+		protected async void Filter_Clicked(object sender, EventArgs e)
+		{
+			var filterPage = new FilterEventsPage (m_Filter);
+			Navigation.PushModalAsync(filterPage);
 		}
 
 		protected void Refresh_Clicked(object sender, EventArgs e)

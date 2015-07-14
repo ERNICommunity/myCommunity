@@ -69,6 +69,10 @@
       <DependentUpon>MyEventsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CS\HeaderCell.cs" />
+    <Compile Include="Views\XAML\FilterEventsPage.xaml.cs">
+      <DependentUpon>FilterEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FilterModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\XAML\MyEventsPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\XAML\FilterEventsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
