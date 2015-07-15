@@ -16,7 +16,7 @@
             		<ColumnDefinition Width="*"></ColumnDefinition>
             	</Grid.ColumnDefinitions>
             	<StackLayout Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Navy" WidthRequest="1">
-            	<Label HorizontalOptions="CenterAndExpand" TextColor="White" Text="Set Filter"></Label>
+            	<Label HorizontalOptions="CenterAndExpand" TextColor="White" Text="Filter" FontSize="Medium"></Label>
             	</StackLayout>
             	<StackLayout
             		Grid.Row="1" Grid.ColumnSpan="2" 
