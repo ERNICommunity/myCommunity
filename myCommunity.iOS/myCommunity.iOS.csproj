@@ -85,7 +85,8 @@
     <MtouchUseSGen>False</MtouchUseSGen>
     <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
-    <MtouchI18n />
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -102,9 +103,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhoneSimulator'">
     <CodesignKey>iPhone Distribution: ERNI Consulting AG</CodesignKey>
     <CodesignProvision>6c153828-8c78-4add-b2d5-656859ddd19b</CodesignProvision>
-    <CodesignEntitlements />
-    <CodesignResourceRules />
-    <CodesignExtraArgs />
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignResourceRules>
+    </CodesignResourceRules>
+    <CodesignExtraArgs>
+    </CodesignExtraArgs>
+    <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

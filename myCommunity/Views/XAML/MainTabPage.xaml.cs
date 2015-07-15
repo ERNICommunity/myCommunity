@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace myCommunity.Views.XAML
 {
-    public partial class MainTabPage : TabbedPage
+    public partial class MainTabPage : BaseContentPage
     {
         public MainTabPage()
         {
