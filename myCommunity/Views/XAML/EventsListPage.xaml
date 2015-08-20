@@ -1,14 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:myCommunity.Views.XAML;assembly=myCommunity"
              x:Class="myCommunity.Views.XAML.EventsListPage"             
              Title="Events">
+    <!--Entry Placeholder="Enter Firstname" >
+	    <b:Interaction.Behaviors>
+	    	<b:BehaviorCollection>
+	    		<b:EventToCommand EventName="OnAppearing"  Command="{Binding OnViewAppearing}" />
+	        	<b:EventToCommand EventName="OnDisappearing"  Command="{Binding OnViewDissapearing}" />
+	        </b:BehaviorCollection>
+	    </b:Interaction.Behaviors>
+    </Entry-->
     <ContentPage.ToolbarItems>
     	<ToolbarItem Icon="ic_description.png"
-                     Clicked="Filter_Clicked"></ToolbarItem>
+                     Command="{Binding ShowFilterPage}"></ToolbarItem>
         <ToolbarItem Icon="ic_action_refresh.png"
-                     Clicked="Refresh_Clicked"></ToolbarItem>
+                     Command="{Binding RefreshList}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout Spacing="0">
         <!--<RelativeLayout VerticalOptions="FillAndExpand"
@@ -27,8 +36,10 @@
         
             <ListView x:Name="ListViewEvents"
             		  IsGroupingEnabled="true"
-  		  			  GroupShortNameBinding="{Binding Title}"
-                      ItemTapped="ListViewEvents_ItemTapped"
+  		  			  GroupShortNameBinding="{Binding GroupShortNameBinding}"
+  		  			  GroupHeaderTemplate="{Binding GroupHeaderTemplate}"
+  		  			  ItemsSource = "{Binding ItemsCollection}"
+                      SelectedItem = "{Binding SelectedItem}"
                       HasUnevenRows="True"
                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-36}"
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Height, Constant=-10}">

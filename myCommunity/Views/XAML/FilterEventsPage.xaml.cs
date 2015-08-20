@@ -1,35 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using myCommunity.Views.XAML;
+using GalaSoft.MvvmLight.Command;
+using System.Windows.Input;
 
 namespace myCommunity
 {
 	public partial class FilterEventsPage : ContentPage
 	{
-
-		public FilterEventsPage (FilterModel p_Model)
+		public FilterEventsPage ()
 		{
 			InitializeComponent ();
-			if (p_Model != null) {
-				this.showMyEventsOnlySwitch.IsToggled = p_Model.ShowMyEventsOnly;
-			}
+			BindingContext = App.Locator.FilterModel;
 		}
 			
-
-		protected void ApplyFilter(object sender, EventArgs e)
-		{
-			var model = new FilterModel {
-				ShowMyEventsOnly = this.showMyEventsOnlySwitch.IsToggled,	
-			};
-			MessagingCenter.Send<FilterEventsPage, FilterModel> (this, "Filter", model);
-		}
-
-		protected void ClearFilter(object sender, EventArgs e)
-		{
-			MessagingCenter.Send<FilterEventsPage, FilterModel> (this, "Filter", null);
+		public FilterViewModel ViewModel
+		{ 
+			get 
+			{ 
+				return (FilterViewModel)BindingContext;
+			} 	
+			set 
+			{ 
+				BindingContext = value;
+			} 
 		}
 	}
 }

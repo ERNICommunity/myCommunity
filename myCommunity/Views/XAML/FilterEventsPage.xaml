@@ -24,10 +24,10 @@
                  	BackgroundColor="Transparent"
                  	VerticalOptions="FillAndExpand"
                  	HorizontalOptions="FillAndExpand">
-            		<Switch x:Name="showMyEventsOnlySwitch"></Switch>
+            		<Switch x:Name="showMyEventsOnlySwitch" IsToggled="{Binding ShowMyEventsOnly}"></Switch>
             	</StackLayout>
-	            <Button Grid.Row="2" Grid.Column="0" WidthRequest="0.5" x:Name="clearFilterBtn" BackgroundColor="Navy" TextColor="White" Clicked="ClearFilter" Text="Clear"></Button>
-	            <Button Grid.Row="2" Grid.Column="1" WidthRequest="0.5" x:Name="applyFilterBtn" BackgroundColor="Navy" TextColor="White" Clicked="ApplyFilter" Text="Apply"></Button>
+	            <Button Grid.Row="2" Grid.Column="0" Command="{Binding ClearCommand}" WidthRequest="0.5" x:Name="clearFilterBtn" BackgroundColor="Navy" TextColor="White" Text="Clear"></Button>
+	            <Button Grid.Row="2" Grid.Column="1" Command="{Binding ApplyCommand}" WidthRequest="0.5" x:Name="applyFilterBtn" BackgroundColor="Navy" TextColor="White" Text="Apply"></Button>
             </Grid>
         </StackLayout>
 	</ContentPage.Content>

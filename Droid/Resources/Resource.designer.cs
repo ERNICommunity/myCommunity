@@ -26,45 +26,6 @@ namespace myCommunity.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Acr.UserDialogs.Resource.Attribute.ahBarColor = global::myCommunity.Droid.Resource.Attribute.ahBarColor;
-			global::Acr.UserDialogs.Resource.Attribute.ahBarLength = global::myCommunity.Droid.Resource.Attribute.ahBarLength;
-			global::Acr.UserDialogs.Resource.Attribute.ahBarWidth = global::myCommunity.Droid.Resource.Attribute.ahBarWidth;
-			global::Acr.UserDialogs.Resource.Attribute.ahCircleColor = global::myCommunity.Droid.Resource.Attribute.ahCircleColor;
-			global::Acr.UserDialogs.Resource.Attribute.ahDelayMillis = global::myCommunity.Droid.Resource.Attribute.ahDelayMillis;
-			global::Acr.UserDialogs.Resource.Attribute.ahRadius = global::myCommunity.Droid.Resource.Attribute.ahRadius;
-			global::Acr.UserDialogs.Resource.Attribute.ahRimColor = global::myCommunity.Droid.Resource.Attribute.ahRimColor;
-			global::Acr.UserDialogs.Resource.Attribute.ahRimWidth = global::myCommunity.Droid.Resource.Attribute.ahRimWidth;
-			global::Acr.UserDialogs.Resource.Attribute.ahSpinSpeed = global::myCommunity.Droid.Resource.Attribute.ahSpinSpeed;
-			global::Acr.UserDialogs.Resource.Attribute.ahText = global::myCommunity.Droid.Resource.Attribute.ahText;
-			global::Acr.UserDialogs.Resource.Attribute.ahTextColor = global::myCommunity.Droid.Resource.Attribute.ahTextColor;
-			global::Acr.UserDialogs.Resource.Attribute.ahTextSize = global::myCommunity.Droid.Resource.Attribute.ahTextSize;
-			global::Acr.UserDialogs.Resource.Drawable.ic_errorstatus = global::myCommunity.Droid.Resource.Drawable.ic_errorstatus;
-			global::Acr.UserDialogs.Resource.Drawable.ic_successstatus = global::myCommunity.Droid.Resource.Drawable.ic_successstatus;
-			global::Acr.UserDialogs.Resource.Drawable.roundedbg = global::myCommunity.Droid.Resource.Drawable.roundedbg;
-			global::Acr.UserDialogs.Resource.Drawable.roundedbgdark = global::myCommunity.Droid.Resource.Drawable.roundedbgdark;
-			global::Acr.UserDialogs.Resource.Id.loadingImage = global::myCommunity.Droid.Resource.Id.loadingImage;
-			global::Acr.UserDialogs.Resource.Id.loadingProgressBar = global::myCommunity.Droid.Resource.Id.loadingProgressBar;
-			global::Acr.UserDialogs.Resource.Id.loadingProgressWheel = global::myCommunity.Droid.Resource.Id.loadingProgressWheel;
-			global::Acr.UserDialogs.Resource.Id.textViewStatus = global::myCommunity.Droid.Resource.Id.textViewStatus;
-			global::Acr.UserDialogs.Resource.Layout.loading = global::myCommunity.Droid.Resource.Layout.loading;
-			global::Acr.UserDialogs.Resource.Layout.loadingimage = global::myCommunity.Droid.Resource.Layout.loadingimage;
-			global::Acr.UserDialogs.Resource.Layout.loadingprogress = global::myCommunity.Droid.Resource.Layout.loadingprogress;
-			global::Acr.UserDialogs.Resource.String.ApplicationName = global::myCommunity.Droid.Resource.String.ApplicationName;
-			global::Acr.UserDialogs.Resource.String.Hello = global::myCommunity.Droid.Resource.String.Hello;
-			global::Acr.UserDialogs.Resource.String.library_name = global::myCommunity.Droid.Resource.String.library_name;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel = global::myCommunity.Droid.Resource.Styleable.ProgressWheel;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahBarColor = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahBarColor;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahBarLength = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahBarLength;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahBarWidth = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahBarWidth;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahCircleColor = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahCircleColor;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahDelayMillis = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahDelayMillis;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahRadius = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahRadius;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahRimColor = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahRimColor;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahRimWidth = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahRimWidth;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahSpinSpeed = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahSpinSpeed;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahText = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahText;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahTextColor = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
-			global::Acr.UserDialogs.Resource.Styleable.ProgressWheel_ahTextSize = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
 			global::AndroidHUD.Resource.Attribute.ahBarColor = global::myCommunity.Droid.Resource.Attribute.ahBarColor;
 			global::AndroidHUD.Resource.Attribute.ahBarLength = global::myCommunity.Droid.Resource.Attribute.ahBarLength;
 			global::AndroidHUD.Resource.Attribute.ahBarWidth = global::myCommunity.Droid.Resource.Attribute.ahBarWidth;
@@ -102,6 +63,8 @@ namespace myCommunity.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::myCommunity.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::myCommunity.Droid.Resource.String.ApplicationName;
+			global::GalaSoft.MvvmLight.Resource.String.Hello = global::myCommunity.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::myCommunity.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::myCommunity.Droid.Resource.String.Hello;
 		}

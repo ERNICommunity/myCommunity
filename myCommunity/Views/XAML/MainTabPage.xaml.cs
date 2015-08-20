@@ -13,6 +13,7 @@ namespace myCommunity.Views.XAML
         public MainTabPage()
         {
             InitializeComponent();
+			BindingContext = App.Locator.MainModel;
         }
     }
 }

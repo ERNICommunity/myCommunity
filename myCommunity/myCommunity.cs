@@ -1,6 +1,7 @@
 ﻿using myCommunity.Views.XAML;
 using System;
 using Xamarin.Forms;
+using myCommunity.ViewModel;
 
 namespace myCommunity
 {
@@ -10,14 +11,29 @@ namespace myCommunity
 		public App ()
 		{
 			// The root page of your application
-            MainNavigation = new NavigationPage(new MainTabPage());
+			MainNavigation = new NavigationPage(new EventsListPage());
 
             MainPage = MainNavigation;
 		}
 			
+		private static ViewModelLocator _locator;
+
+		public static ViewModelLocator Locator
+		{
+			get
+			{
+				if (_locator == null)
+				{
+					_locator = new ViewModelLocator();
+				}
+
+				return _locator;
+			}
+		}
+
+
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
 		}
 
 		protected override void OnSleep ()
