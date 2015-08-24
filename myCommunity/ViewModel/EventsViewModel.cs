@@ -44,8 +44,9 @@ namespace myCommunity.ViewModel
 		{ 
 			m_SelectedItem = new CommunityEvent ();
 			m_FilterPage = new FilterEventsPage ();
-			MessagingCenter.Subscribe<DetailsPage>(this, "RefreshFromSignup", RefreshFromSignup);
-			MessagingCenter.Subscribe<FilterEventsPage, FilterViewModel> (this, "Filter", (childPage, filter) => FilterList (filter));
+			MessagingCenter.Subscribe<DetailsViewModel>(this, "RefreshFromSignup", RefreshFromSignup);
+			MessagingCenter.Subscribe<FilterViewModel, FilterViewModel> (this, "Filter", (childPage, filter) => 
+				FilterList (filter));
 		}
 
 		public INavigation Navigation { get; set; }
@@ -184,8 +185,7 @@ namespace myCommunity.ViewModel
 		public void SelectEvent()
 		{
 			if (m_SelectedItem != null) {
-				var detailsPage = new DetailsPage ();
-				detailsPage.BindingContext = m_SelectedItem;
+				var detailsPage = new DetailsPage (m_SelectedItem);
 				App.MainNavigation.Navigation.PushAsync (detailsPage);
 			}
 		}
@@ -196,10 +196,8 @@ namespace myCommunity.ViewModel
 			var communityEvent = (CommunityEvent)e.Item;
 
 			//				create the DetailsPage
-			var detailsPage = new DetailsPage();
+			var detailsPage = new DetailsPage(communityEvent);
 
-			//				bind the CommunityEvent source to the DetailsPage target
-			detailsPage.BindingContext = communityEvent;
 
 			((ListView)sender).SelectedItem = null;
 

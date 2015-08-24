@@ -24,21 +24,6 @@ namespace myCommunity.Views.XAML
 			var eventsViewModel = App.Locator.EventsModel;
 			BindingContext = eventsViewModel;
 			eventsViewModel.Navigation = this.Navigation;
-
-			/*
-            MessagingCenter.Subscribe<DetailsPage>(this, "RefreshFromSignup", this.RefreshFromSignup);
-			MessagingCenter.Subscribe<FilterEventsPage, FilterViewModel> (this, "Filter", (childPage, filter) => {
-				var currentFilter = m_Filter;
-				m_Filter = filter;
-				if(m_Filter != null && m_Filter.IsEquals(currentFilter))
-				{
-					Navigation.PopModalAsync();
-					return;
-				}
-				UpdateList();
-				Navigation.PopModalAsync();
-			});
-*/
         }
 			
 		protected override void OnDisappearing()

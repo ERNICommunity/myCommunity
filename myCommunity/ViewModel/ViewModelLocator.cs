@@ -30,9 +30,10 @@ namespace myCommunity.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-			SimpleIoc.Default.Register<MainViewModel>();
 			SimpleIoc.Default.Register<FilterViewModel>();
 			SimpleIoc.Default.Register<EventsViewModel>();
+			SimpleIoc.Default.Register<DetailsViewModel>();
+			SimpleIoc.Default.Register<NewsViewModel>();
 		}
         
 		public FilterViewModel FilterModel
@@ -45,16 +46,22 @@ namespace myCommunity.ViewModel
 			get { return ServiceLocator.Current.GetInstance<EventsViewModel>(); } 
 		}
 
-		public MainViewModel MainModel
+		public DetailsViewModel DetailModel
 		{
-			get { return ServiceLocator.Current.GetInstance<MainViewModel>(); } 
+			get { return ServiceLocator.Current.GetInstance<DetailsViewModel>(); } 
+		}
+
+		public NewsViewModel NewsModel
+		{
+			get { return ServiceLocator.Current.GetInstance<NewsViewModel>(); } 
 		}
 
         public static void Cleanup()
-        {
-			SimpleIoc.Default.Unregister<MainViewModel> ();
+		{
 			SimpleIoc.Default.Unregister<FilterViewModel> ();
 			SimpleIoc.Default.Unregister<EventsViewModel> ();
+			SimpleIoc.Default.Unregister<DetailsViewModel> ();
+			SimpleIoc.Default.Unregister<NewsViewModel> ();
         }
     }
 }

@@ -17,7 +17,7 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="SIGNUP"
-                     Activated="SignUp_Clicked"/>
+                     Command="{Binding SignUp_Clicked}"/>
     </ContentPage.ToolbarItems>
     <StackLayout Spacing="10" BackgroundColor="White">
         <ScrollView HorizontalOptions="FillAndExpand" IsClippedToBounds="True" >

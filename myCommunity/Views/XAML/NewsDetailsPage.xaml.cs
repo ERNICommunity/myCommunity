@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using myCommunity.Models;
 
 namespace myCommunity.Views.XAML
 {
     public partial class NewsDetailsPage : ContentPage
     {
-        public NewsDetailsPage()
+		public NewsDetailsPage(News p_BindingContext)
         {
             InitializeComponent();
+			BindingContext = p_BindingContext;
         }
     }
 }

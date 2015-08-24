@@ -6,11 +6,12 @@
              Title="News">
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="ic_action_refresh.png"
-                     Clicked="Refresh_Clicked"></ToolbarItem>
+                     Command="{Binding RefreshCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
   <StackLayout>
     <ListView x:Name="ListViewNews"
-              ItemTapped="ListViewNews_ItemTapped"
+    		  ItemsSource = "{Binding ItemsCollection}"
+    		  SelectedItem = "{Binding SelectedItem}"
               RowHeight="320"
               HasUnevenRows="True"
               HorizontalOptions="FillAndExpand"
